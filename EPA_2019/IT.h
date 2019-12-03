@@ -1,20 +1,17 @@
 #pragma once
 #define ID_MAXSIZE		8			//макс число символов идентификатора
 #define TI_MAXSIZE		4096		//макс число количество строк в таблице идентификаторов
-#define TI_INT_DEFAULT	0		//значение по умолчанию для int
-#define TI_DOUBLE_DEFAULT  0
+#define TI_SHORT_DEFAULT	0		//значение по умолчанию для int
 #define TI_STR_DEFAULT	NULL		//значение по умолчанию для string
 #define TI_NULLIDX		0xffffffff	//нет элемента таблицы идентификаторов
 #define TI_STR_MAXSIZE	255         //максимально допустимая длина строки
-#define INT_MAXSIZE     65536       //максимально допустимое значение
-#define INT_MINUS_MAXSIZE   0  //минимально допустимое значение
-#define DOUBLE_MAXSIZE     1048576       //максимально допустимое значение
-#define DOUBLE_MINUS_MAXSIZE   0  //минимально допустимое значение
+#define SHORT_MAXSIZE     32767       //максимально допустимое значение
+#define SHORT_MINUS_MAXSIZE   -32767  //минимально допустимое значение
 
 
 namespace IT
 {
-	enum IDDATATYPE { NUM = 1, STR = 2, DBL = 3 };	        //типы данных идентификаторов
+	enum IDDATATYPE { SHR = 1, STR = 2 };	        //типы данных идентификаторов
 	enum IDTYPE { V = 1, F = 2, P = 3, L = 4, S = 5 };		//типы идентификаторов: переменная, функция, параметр, литерал,стандарт.библ.
 	struct Entry
 	{
@@ -25,8 +22,7 @@ namespace IT
 		IDTYPE		idtype;							//тип идентификатора
 		union
 		{
-			int	vint;								//значение	
-			double vdbl;
+			int	vshort;								//значение	
 			struct
 			{
 				int len;							//количество символов в string
@@ -35,9 +31,8 @@ namespace IT
 		}value;										//значение идентификатора
 		Entry()                                     //конструктор без параметров
 		{
-			this->value.vint = TI_INT_DEFAULT;
+			this->value.vshort = TI_SHORT_DEFAULT;
 			this->value.vstr.len = NULL;
-			this->value.vdbl = TI_DOUBLE_DEFAULT;
 		}
 		Entry(char* id, int idxLT, IDDATATYPE datatype, IDTYPE idtype); //конструктор с параметрами
 	};

@@ -6,11 +6,10 @@ namespace LeX
 	{   //массив содержащий лексемы и соответствующие им графы
 		{ LEX_STANDART, FST::FST(GRAPH_STANDART) },
 		{ LEX_NOT_EQUALS, FST::FST(GRAPH_NOT_EQUALS) },
-		{ LEX_NUM, FST::FST(GRAPH_NUM) },
-		{ LEX_DOUBLE, FST::FST(GRAPH_DOUBLE) },
+		{ LEX_SHORT, FST::FST(GRAPH_SHORT) },
 		{ LEX_STRLEN, FST::FST(GRAPH_STRLEN) },
-		{ LEX_SUBSTR, FST::FST(GRAPH_SUBSTR) },
-		{ LEX_STEPEN, FST::FST(GRAPH_STEPEN) },
+		//{ LEX_SUBSTR, FST::FST(GRAPH_SUBSTR) },
+		//{ LEX_STEPEN, FST::FST(GRAPH_STEPEN) },
 		{ LEX_IF, FST::FST(GRAPH_IF) },
 		{ LEX_STR, FST::FST(GRAPH_STR) },
 		{ LEX_FUNCTION, FST::FST(GRAPH_FUNCTION) },
@@ -18,9 +17,8 @@ namespace LeX
 		{ LEX_BACK, FST::FST(GRAPH_BACK) },
 		{ LEX_OUT, FST::FST(GRAPH_OUT) },
 		{ LEX_GLAVN, FST::FST(GRAPH_GLAVN) },
-		{ LEX_LITERAL, FST::FST(GRAPH_NUM_LITERAL) },
 		{ LEX_LITERAL, FST::FST(GRAPH_STR_LITERAL) },
-		{ LEX_LITERAL, FST::FST(GRAPH_DBL_LITERAL) },
+		{ LEX_LITERAL, FST::FST(GRAPH_SHORT_LITERAL) },
 		{ LEX_ID, FST::FST(GRAPH_ID) },
 		{ LEX_SEPARATOR, FST::FST(GRAPH_SEPARATOR) },
 		{ LEX_COMMA, FST::FST(GRAPH_COMMA) },
@@ -41,7 +39,7 @@ namespace LeX
 		Tables.IDtable = IT::Create(65536); //создаём таблицу идентификаторов
 		bool isDeclare, isParam, isMainFunc, isExecuted, isLiteral;
 		isDeclare = isParam = isMainFunc = isExecuted = isLiteral = false;
-		IT::IDDATATYPE funcType = IT::NUM;
+		IT::IDDATATYPE funcType = IT::SHR;
 		for (int i = 0; i < InStruct.TokenCount; i++) //цикл пробега по всем токенам(словам)
 		{
 			for (int j = 0; j < LENGTH(graph); j++) //цикл пробега по всем графам 
@@ -59,41 +57,41 @@ namespace LeX
 						LT::Add(Tables.Lextable, entrylt);
 						break;
 					}
-					case LEX_SUBSTR:
-					{
-						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::STR, IT::S);
-						for (int j = 0; j < Tables.IDtable.size; j++)
-						{
-							if (!strcmp(InStruct.tokens[i + 2].token, Tables.IDtable.table[j].id))
-							{
+					//case LEX_SUBSTR:
+					//{
+					//	IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::STR, IT::S);
+					//	for (int j = 0; j < Tables.IDtable.size; j++)
+					//	{
+					//		if (!strcmp(InStruct.tokens[i + 2].token, Tables.IDtable.table[j].id))
+					//		{
 
-								for (int k = 0; k < Tables.IDtable.size; k++)
-								{
-									if (!strcmp(InStruct.tokens[i - 2].token, Tables.IDtable.table[k].id))
-									{
-										int a = atoi(InStruct.tokens[i + 4].token);
-										int b = atoi(InStruct.tokens[i + 6].token);
-										char str[TI_STR_MAXSIZE];
-										strcpy(str, Tables.IDtable.table[j].value.vstr.str);
-										char *c = str;
-										c = c + a; // на a-й  символ в строке															
-										char *buf = new char[b];
-										strncpy(buf, c, b);
-										strncpy(Tables.IDtable.table[k].value.vstr.str, buf, b);
-									}
-								}
+					//			for (int k = 0; k < Tables.IDtable.size; k++)
+					//			{
+					//				if (!strcmp(InStruct.tokens[i - 2].token, Tables.IDtable.table[k].id))
+					//				{
+					//					int a = atoi(InStruct.tokens[i + 4].token);
+					//					int b = atoi(InStruct.tokens[i + 6].token);
+					//					char str[TI_STR_MAXSIZE];
+					//					strcpy(str, Tables.IDtable.table[j].value.vstr.str);
+					//					char *c = str;
+					//					c = c + a; // на a-й  символ в строке															
+					//					char *buf = new char[b];
+					//					strncpy(buf, c, b);
+					//					strncpy(Tables.IDtable.table[k].value.vstr.str, buf, b);
+					//				}
+					//			}
 
-							}
-						}
-						IT::Add(Tables.IDtable, entryit);
-						LT::Entry entrylt(graph[j].Lexema, InStruct.tokens[i].line, Tables.IDtable.size);
-						entrylt.tokenId = i;
-						LT::Add(Tables.Lextable, entrylt);
-						break;
-					}
+					//		}
+					//	}
+					//	IT::Add(Tables.IDtable, entryit);
+					//	LT::Entry entrylt(graph[j].Lexema, InStruct.tokens[i].line, Tables.IDtable.size);
+					//	entrylt.tokenId = i;
+					//	LT::Add(Tables.Lextable, entrylt);
+					//	break;
+					//}
 					case LEX_STRLEN:
 					{
-						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::NUM, IT::S);
+						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::SHR, IT::S);
 						for (int j = 0; j < Tables.IDtable.size; j++)
 						{
 							if (!strcmp(InStruct.tokens[i + 2].token, Tables.IDtable.table[j].id))
@@ -102,7 +100,7 @@ namespace LeX
 								{
 									if (!strcmp(InStruct.tokens[i - 2].token, Tables.IDtable.table[k].id))
 									{
-										Tables.IDtable.table[k].value.vint = strlen(Tables.IDtable.table[j].value.vstr.str) - 2;
+										Tables.IDtable.table[k].value.vshort = strlen(Tables.IDtable.table[j].value.vstr.str) - 2;
 										break;
 									}
 								}
@@ -126,7 +124,7 @@ namespace LeX
 						}
 						if (IT::IsId(Tables.IDtable, InStruct.tokens[i].token) != -1 && (Tables.Lextable.table[i - 2].lexema == LEX_IF))
 						{
-							if (IT::GetEntry(Tables.IDtable, IT::IsId(Tables.IDtable, InStruct.tokens[i].token)).value.vint == 0)
+							if (IT::GetEntry(Tables.IDtable, IT::IsId(Tables.IDtable, InStruct.tokens[i].token)).value.vshort == 0)
 								throw ERROR_THROW_IN(602, Tables.Lextable.table[i].sn, NULL);
 						}
 						if (IT::IsId(Tables.IDtable, InStruct.tokens[i].token) == -1)
@@ -138,9 +136,9 @@ namespace LeX
 							}
 							if (Tables.Lextable.table[i - 1].lexema == LEX_FUNCTION)
 							{
-								if (!strcmp(InStruct.tokens[i - 2].token, LEX_TYPE_NUM))
+								if (!strcmp(InStruct.tokens[i - 2].token, LEX_TYPE_SHR))
 								{
-									IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::NUM, IT::F);
+									IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::SHR, IT::F);
 									IT::Add(Tables.IDtable, entryit);
 								}
 								else
@@ -149,12 +147,7 @@ namespace LeX
 										IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::STR, IT::F);
 										IT::Add(Tables.IDtable, entryit);
 									}
-									else
-										if (!strcmp(InStruct.tokens[i - 2].token, LEX_TYPE_DOUBLE))
-										{
-											IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::DBL, IT::F);
-											IT::Add(Tables.IDtable, entryit);
-										}
+									
 								LT::Entry entrylt(graph[j].Lexema, InStruct.tokens[i].line, Tables.IDtable.size - 1);
 								entrylt.tokenId = i;
 								LT::Add(Tables.Lextable, entrylt);
@@ -166,9 +159,9 @@ namespace LeX
 								{
 									if (isParam)
 									{
-										if (!strcmp(InStruct.tokens[i - 1].token, LEX_TYPE_NUM))
+										if (!strcmp(InStruct.tokens[i - 1].token, LEX_TYPE_SHR))
 										{
-											IT::Entry entryit(InStruct.tokens[i].token, i, IT::NUM, IT::P);
+											IT::Entry entryit(InStruct.tokens[i].token, i, IT::SHR, IT::P);
 											IT::Add(Tables.IDtable, entryit);
 										}
 										else
@@ -177,12 +170,7 @@ namespace LeX
 												IT::Entry entryit(InStruct.tokens[i].token, i, IT::STR, IT::P);
 												IT::Add(Tables.IDtable, entryit);
 											}
-											else
-												if (!strcmp(InStruct.tokens[i - 1].token, LEX_TYPE_DOUBLE))
-												{
-													IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::DBL, IT::P);
-													IT::Add(Tables.IDtable, entryit);
-												}
+											
 
 										if (InStruct.tokens[i + 1].token[0] == LEX_RIGHTTHESIS)
 											isParam = false;
@@ -190,10 +178,10 @@ namespace LeX
 									else
 										if (isDeclare)
 										{
-											if (!strcmp(InStruct.tokens[i - 1].token, LEX_TYPE_NUM))
+											if (!strcmp(InStruct.tokens[i - 1].token, LEX_TYPE_SHR))
 											{
 
-												IT::Entry entryit(InStruct.tokens[i].token, i, IT::NUM, IT::V);
+												IT::Entry entryit(InStruct.tokens[i].token, i, IT::SHR, IT::V);
 												bool flag = true;
 												int re = atoi(InStruct.tokens[i + 2].token);
 												int l = i;
@@ -219,7 +207,7 @@ namespace LeX
 													{
 														flag = false;
 														//cout << re;
-														entryit.value.vint = re;
+														entryit.value.vshort = re;
 													}
 													l += 2;
 												}
@@ -231,7 +219,7 @@ namespace LeX
 													{
 														if (!strcmp(InStruct.tokens[i + 4].token, Tables.IDtable.table[j].id))
 														{
-															entryit.value.vint = strlen(Tables.IDtable.table[j].value.vstr.str) - 2;
+															entryit.value.vshort = strlen(Tables.IDtable.table[j].value.vstr.str) - 2;
 															break;
 														}
 													}
@@ -265,15 +253,7 @@ namespace LeX
 
 												IT::Add(Tables.IDtable, entryit);
 											}
-											else if (!strcmp(InStruct.tokens[i - 1].token, LEX_TYPE_DOUBLE))
-											{
-												IT::Entry entryit(InStruct.tokens[i].token, i, IT::DBL, IT::V);
-												if (strcmp(InStruct.tokens[i + 1].token, ";"))
-													strcpy(entryit.value.vstr.str, InStruct.tokens[i + 2].token);
-												//entryit.value.vdbl = atof(InStruct.tokens[i + 2].token);
-												//cout << entryit.value.vdbl;
-												IT::Add(Tables.IDtable, entryit);
-											}
+											
 
 											if (InStruct.tokens[i + 1].token[0] == LEX_RIGHTTHESIS)
 												isDeclare = false;
@@ -297,11 +277,12 @@ namespace LeX
 					{
 						isLiteral = true;
 						InStruct.tokens[i].isLiteral = true;
+						
 						break;
 					}
-					case LEX_STEPEN:
+					/*case LEX_STEPEN:
 					{
-						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::NUM, IT::S);
+						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::SHR, IT::S);
 						int a, b;
 						for (int j = 0; j < Tables.IDtable.size; j++)
 						{
@@ -311,14 +292,14 @@ namespace LeX
 								{
 									if (!strcmp(InStruct.tokens[i + 2].token, Tables.IDtable.table[k].id))
 									{
-										a = Tables.IDtable.table[k].value.vint;
+										a = Tables.IDtable.table[k].value.vshort;
 									}
 									if (!strcmp(InStruct.tokens[i + 4].token, Tables.IDtable.table[k].id))
 									{
-										b = Tables.IDtable.table[k].value.vint;
+										b = Tables.IDtable.table[k].value.vshort;
 									}
 								}
-								Tables.IDtable.table[j].value.vdbl = pow(a, b);
+								Tables.IDtable.table[j].value.vshort = pow(a, b);
 								break;
 							}
 						}
@@ -326,19 +307,19 @@ namespace LeX
 						LT::Entry entrylt(LEX_STEPEN, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
 						LT::Add(Tables.Lextable, entrylt);
 						break;
-					}
-					case LEX_IF:
-					{
-						if (IT::IsId(Tables.IDtable, InStruct.tokens[i + 2].token) == -1)
-							throw ERROR_THROW_IN(603, InStruct.tokens[i + 2].line, NULL);
+					}*/
+					//case LEX_IF:
+					//{
+					//	if (IT::IsId(Tables.IDtable, InStruct.tokens[i + 2].token) == -1)
+					//		throw ERROR_THROW_IN(603, InStruct.tokens[i + 2].line, NULL);
 
-						//if(Tables.Lextable.table[i+3].lexema != LEX_EQUALS_EQUAL || Tables.Lextable.table[i + 3].lexema != LEX_NOT_EQUAL)
-							//throw ERROR_THROW_IN(603, InStruct.tokens[i + 2].line, NULL);
+					//	//if(Tables.Lextable.table[i+3].lexema != LEX_EQUALS_EQUAL || Tables.Lextable.table[i + 3].lexema != LEX_NOT_EQUAL)
+					//		//throw ERROR_THROW_IN(603, InStruct.tokens[i + 2].line, NULL);
 
-						LT::Entry entrylt(LEX_IF, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
-						LT::Add(Tables.Lextable, entrylt);
-						break;
-					}
+					//	LT::Entry entrylt(LEX_IF, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
+					//	LT::Add(Tables.Lextable, entrylt);
+					//	break;
+					//}
 					case LEX_PLUS:
 					{
 						LT::Entry entrylt(LEX_PLUS, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
@@ -379,7 +360,7 @@ namespace LeX
 					case LEX_GLAVN:
 					{
 						isMainFunc = true;
-						funcType = IT::NUM;
+						funcType = IT::SHR;
 						LT::Entry entrylt(graph[j].Lexema, InStruct.tokens[i].line);
 						LT::Add(Tables.Lextable, entrylt);
 						break;

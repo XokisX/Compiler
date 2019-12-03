@@ -85,7 +85,7 @@ namespace FST
 				{
 					for (j = 0; j < fst.nodes[i].n_relation; j++)
 					{
-						if (fst.nodes[i].relations[j].symbol == fst.string[fst.position])
+							if (fst.nodes[i].relations[j].symbol == fst.string[fst.position])
 							rstates2[fst.nodes[i].relations[j].nnode] = fst.position + 1;
 					};
 				};

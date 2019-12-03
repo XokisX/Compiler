@@ -6,7 +6,7 @@ namespace Error
 {
 	//массив ошибок
 	ERROR errors[ERROR_MAX_ENTRY] =
-	{
+	{ 
 		ERROR_ENTRY(0, "[Системная] Недопустимый код ошибки"),
 		ERROR_ENTRY(1, "[Системная] Системный сбой"),ERROR_ENTRY_NODEF(2),
 		ERROR_ENTRY(3, "[Семантическая] Несоответствие типов"),

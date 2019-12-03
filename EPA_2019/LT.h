@@ -5,9 +5,8 @@
 #define	LEXEMA_FIXSIZE	1			// Фиксированный размер таблицы лексем
 #define	LT_MAXSIZE		65536		// Максимальный размер таблицы лексем
 #define	LT_TI_NULLDX	0xffffffff	// Пустота в таблице лексем
-#define	LEX_NUM		    't'			// Целый
+#define	LEX_SHORT		't'			// Целый
 #define	LEX_STR		    't'			// Строка
-#define LEX_DOUBLE		't'			// С плавающей точкой
 #define LEX_OBJECT      't'			// Обьект						
 #define	LEX_ID			'i'			// Индентификатор
 #define	LEX_LITERAL		'l'			// Литерал
@@ -16,8 +15,8 @@
 #define	LEX_DEF		    'd'			// Init
 #define LEX_STANDART    'B'         // Объявления встроенной библиотеки
 #define LEX_STRLEN      'e'         // Встроенная библиотека strlen
-#define LEX_SUBSTR      's'         // Встроенная библиотека substr
-#define LEX_STEPEN      'p'         // Встроенная библиотека stepen
+//#define LEX_SUBSTR      's'         // Встроенная библиотека substr
+//#define LEX_STEPEN      'p'         // Встроенная библиотека stepen
 #define	LEX_BACK		'b'			// Return
 #define	LEX_OUT		    'o'			// Out
 #define	LEX_GLAVN		'g'			// Glavn
@@ -33,9 +32,8 @@
 #define	LEX_DIRSLASH	'/'			// /
 #define	LEX_EQUAL		'='			// =
 #define	LEX_NOT_EQUALS	'n'			// !=
-#define	LEX_TYPE_NUM	    "num"	
+#define	LEX_TYPE_SHR	    "short"	
 #define	LEX_TYPE_STR	    "str"	
-#define LEX_TYPE_DOUBLE		"double"
 #define	LEX_TYPE_FUNCTION	"function"	
 #define	LEX_TYPE_VARIABLE	"variable"	
 #define LEX_TYPE_PARAMETR	"parametr"	

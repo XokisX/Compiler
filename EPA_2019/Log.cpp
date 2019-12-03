@@ -123,12 +123,11 @@ namespace Log {
 				setw(10) << left <<
 				setw(10) << left << IDtable.table[i].id <<
 				setw(13) << left;
-			if (IDtable.table[i].iddatatype == IT::NUM)
-				*log.stream << LEX_TYPE_NUM;
+			if (IDtable.table[i].iddatatype == IT::SHR)
+				*log.stream << LEX_TYPE_SHR;
 			if (IDtable.table[i].iddatatype == IT::STR)
 				*log.stream << LEX_TYPE_STR;
-			if (IDtable.table[i].iddatatype == IT::DBL)
-				*log.stream << LEX_TYPE_DOUBLE;
+			
 			*log.stream << setw(15) << left;
 			switch (IDtable.table[i].idtype)
 			{
@@ -144,13 +143,12 @@ namespace Log {
 			else
 				*log.stream << IDtable.table[i].idxfirstLE;
 
-			if (IDtable.table[i].iddatatype == IT::NUM)
-				*log.stream << IDtable.table[i].value.vint;
+			if (IDtable.table[i].iddatatype == IT::SHR)
+				*log.stream << IDtable.table[i].value.vshort;
 			if (IDtable.table[i].iddatatype == IT::STR)
 				*log.stream << IDtable.table[i].value.vstr.str;
 			//*log.stream << ((IDtable.table[i].value.vstr.len > 0) ? (IDtable.table[i].value.vstr.str) : (""));
-			if (IDtable.table[i].iddatatype == IT::DBL)
-				*log.stream << IDtable.table[i].value.vdbl;
+			
 			*log.stream << endl;
 		}
 	}

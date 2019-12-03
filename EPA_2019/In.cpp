@@ -31,7 +31,7 @@ namespace In
 		unsigned char p;
 		char *buffer = new char[IN_MAX_LEN_TEXT];
 		int posbuf = NULL;
-	reload:
+
 		while ((p = txtfile.get()) && (!txtfile.eof()))
 		{
 			switch (StrIn.code[p])

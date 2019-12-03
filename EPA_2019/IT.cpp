@@ -11,8 +11,7 @@ namespace IT
 		this->idxfirstLE = idxLT;
 		this->iddatatype = datatype;
 		this->idtype = idtype;
-		this->value.vint = TI_INT_DEFAULT;
-		this->value.vdbl = TI_DOUBLE_DEFAULT;
+		this->value.vshort = TI_SHORT_DEFAULT;
 		this->value.vstr.len = NULL;
 	}
 	IdTable Create(int size)
@@ -29,8 +28,7 @@ namespace IT
 		idtable.table[idtable.size].idxfirstLE = entry.idxfirstLE;
 		idtable.table[idtable.size].iddatatype = entry.iddatatype;
 		idtable.table[idtable.size].idtype = entry.idtype;
-		idtable.table[idtable.size].value.vint = entry.value.vint;
-		idtable.table[idtable.size].value.vdbl = entry.value.vdbl;
+		idtable.table[idtable.size].value.vshort = entry.value.vshort;
 		idtable.table[idtable.size].value.vstr.len = entry.value.vstr.len;
 		idtable.table[idtable.size].value.vstr.str[0] = entry.value.vstr.str[0];
 		idtable.size++;
@@ -54,23 +52,7 @@ namespace IT
 	}
 	void SetValue(IdTable &idtable, int indTI, char* token)
 	{
-		if (idtable.table[indTI].iddatatype == DBL)
-		{
-			double tempDbl = strtod(token, '\0');
-
-			if (tempDbl > DOUBLE_MAXSIZE)
-			{
-				throw ERROR_THROW(6);
-			}
-			else
-			{
-				if (tempDbl < DOUBLE_MINUS_MAXSIZE)
-					throw ERROR_THROW(6);
-			}
-			idtable.table[indTI].value.vdbl = tempDbl;
-
-		}
-		else if (idtable.table[indTI].iddatatype == STR)
+		if (idtable.table[indTI].iddatatype == STR)
 		{
 			if (idtable.table[indTI].value.vstr.len > TI_STR_MAXSIZE)
 				throw ERROR_THROW(6);
@@ -79,17 +61,18 @@ namespace IT
 		}
 		else
 		{
-			int tempInt = atoi(token);
-			if (tempInt > INT_MAXSIZE)
+			int tempShort = atoi(token);
+			if (tempShort > SHORT_MAXSIZE)
 			{
 				throw ERROR_THROW(6);
 			}
 			else
 			{
-				if (tempInt < INT_MINUS_MAXSIZE)
+				if (tempShort < SHORT_MINUS_MAXSIZE) {
 					throw ERROR_THROW(6);
+				}
 			}
-			//idtable.table[indTI].value.vint = tempInt;
+			idtable.table[indTI].value.vshort = tempShort;
 
 		}
 	}

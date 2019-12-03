@@ -43,6 +43,7 @@ namespace In
 		char token[1024]; //массив токенов типа char
 		bool isLiteral; // Является ли литералом
 		bool isStr = false;// Является ли литерал строкой
+		bool signv = false;
 	};
 	struct IN //структура для таблицы кодироков
 	{
