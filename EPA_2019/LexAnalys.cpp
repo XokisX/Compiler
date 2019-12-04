@@ -10,6 +10,7 @@ namespace LeX
 		{ LEX_STRLEN, FST::FST(GRAPH_STRLEN) },
 		//{ LEX_SUBSTR, FST::FST(GRAPH_SUBSTR) },
 		//{ LEX_STEPEN, FST::FST(GRAPH_STEPEN) },
+		{ LEX_WHILE, FST::FST(GRAPH_WHILE) },
 		{ LEX_IF, FST::FST(GRAPH_IF) },
 		{ LEX_STR, FST::FST(GRAPH_STR) },
 		{ LEX_FUNCTION, FST::FST(GRAPH_FUNCTION) },
@@ -28,6 +29,11 @@ namespace LeX
 		{ LEX_RIGHTTHESIS, FST::FST(GRAPH_CLOSE_PARENTHESIS) },
 		{ LEX_PLUS, FST::FST(GRAPH_PLUS) },
 		{ LEX_MINUS, FST::FST(GRAPH_MINUS) },
+		{ LEX_LESS, FST::FST(GRAPH_LESS) },
+		{ LEX_LAGRER, FST::FST(GRAPH_LARGER) },
+		{ LEX_MAE, FST::FST(GRAPH_MAE) },
+		{ LEX_LAE, FST::FST(GRAPH_LAE) },
+		{ LEX_RAVN, FST::FST(GRAPH_RAVN) },
 		{ LEX_STAR, FST::FST(GRAPH_ASTERISK) },
 		{ LEX_DIRSLASH, FST::FST(GRAPH_FORWARD_SLASH) },
 		{ LEX_EQUAL, FST::FST(GRAPH_EQUALS) }
@@ -89,6 +95,15 @@ namespace LeX
 					//	LT::Add(Tables.Lextable, entrylt);
 					//	break;
 					//}
+					case LEX_WHILE:
+					{
+						if (IT::IsId(Tables.IDtable, InStruct.tokens[i + 2].token) == -1) {
+							throw ERROR_THROW_IN(604, InStruct.tokens[i + 2].line, NULL);
+						}
+						LT::Entry entrylt(LEX_WHILE, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
+						LT::Add(Tables.Lextable, entrylt);
+						break;
+					}
 					case LEX_STRLEN:
 					{
 						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::SHR, IT::S);
@@ -308,18 +323,18 @@ namespace LeX
 						LT::Add(Tables.Lextable, entrylt);
 						break;
 					}*/
-					//case LEX_IF:
-					//{
-					//	if (IT::IsId(Tables.IDtable, InStruct.tokens[i + 2].token) == -1)
-					//		throw ERROR_THROW_IN(603, InStruct.tokens[i + 2].line, NULL);
+					case LEX_IF:
+					{
+						if (IT::IsId(Tables.IDtable, InStruct.tokens[i + 2].token) == -1)
+							throw ERROR_THROW_IN(603, InStruct.tokens[i + 2].line, NULL);
 
-					//	//if(Tables.Lextable.table[i+3].lexema != LEX_EQUALS_EQUAL || Tables.Lextable.table[i + 3].lexema != LEX_NOT_EQUAL)
-					//		//throw ERROR_THROW_IN(603, InStruct.tokens[i + 2].line, NULL);
+						//if(Tables.Lextable.table[i+3].lexema != LEX_EQUALS_EQUAL || Tables.Lextable.table[i + 3].lexema != LEX_NOT_EQUAL)
+							//throw ERROR_THROW_IN(603, InStruct.tokens[i + 2].line, NULL);
 
-					//	LT::Entry entrylt(LEX_IF, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
-					//	LT::Add(Tables.Lextable, entrylt);
-					//	break;
-					//}
+						LT::Entry entrylt(LEX_IF, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
+						LT::Add(Tables.Lextable, entrylt);
+						break;
+					}
 					case LEX_PLUS:
 					{
 						LT::Entry entrylt(LEX_PLUS, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
@@ -328,7 +343,7 @@ namespace LeX
 					}
 					case LEX_MINUS:
 					{
-						LT::Entry entrylt(LEX_STAR, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
+						LT::Entry entrylt(LEX_MINUS, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
 						LT::Add(Tables.Lextable, entrylt);
 						break;
 					}
@@ -338,9 +353,35 @@ namespace LeX
 						LT::Add(Tables.Lextable, entrylt);
 						break;
 					}
+					/////////////////////////////////////
+					case LEX_LAGRER:
+					{
+						LT::Entry entrylt(LEX_LAGRER, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
+						LT::Add(Tables.Lextable, entrylt);
+						break;
+					}
+					case LEX_LESS:
+					{
+						LT::Entry entrylt(LEX_LESS, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
+						LT::Add(Tables.Lextable, entrylt);
+						break;
+					}
+					case LEX_MAE:
+					{
+						LT::Entry entrylt(LEX_MAE, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
+						LT::Add(Tables.Lextable, entrylt);
+						break;
+					}
+					case LEX_LAE:
+					{
+						LT::Entry entrylt(LEX_LAE, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
+						LT::Add(Tables.Lextable, entrylt);
+						break;
+					}
+					/////////////////////////////////////////
 					case LEX_NOT_EQUALS:
 					{
-						LT::Entry entrylt(LEX_EQUAL, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
+						LT::Entry entrylt(LEX_NOT_EQUALS, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
 						LT::Add(Tables.Lextable, entrylt);
 						break;
 					}
@@ -384,7 +425,6 @@ namespace LeX
 						LT::Add(Tables.Lextable, entrylt);
 						break;
 					}
-
 					default:
 					{
 						LT::Entry entrylt(graph[j].Lexema, InStruct.tokens[i].line);
@@ -454,6 +494,9 @@ namespace LeX
 			}
 			isExecuted = false;
 			isLiteral = false;
+		}
+		for (int i = 0; i < Tables.Lextable.size;i++) {
+			cout << Tables.Lextable.table[i].lexema << endl;
 		}
 		return Tables; //возвращаем таблицу лексем
 	}

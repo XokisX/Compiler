@@ -1,5 +1,13 @@
 glavn
 {
-init short rez = 509;
+init short lol=1;
+init short lok=2;
+
+while(lol)
+{
+
+}
+
 back 0;
 }
+	

@@ -1,113 +1,62 @@
 
------ Протокол ------ Дата: 03.12.2019 18:49:51 --------
+----- Протокол ------ Дата: 04.12.2019 23:22:35 --------
 ----- Параметры --------
 -in: in.txt
 -out: out.txt
 -log: log.txt
 ---- Исходные данные ------
-Количество символов:  40
+Количество символов:  73
 Проигнорировано	   :  0
-Количество строк   :  5
+Количество строк   : 12
 ---- Таблица слов ------
 №    Line      isLiteral      Token               
 0    0         false          glavn               
 1    1         false          {                   
 2    2         false          init                
 3    2         false          short               
-4    2         false          rez                 
+4    2         false          lol                 
 5    2         false          =                   
-6    2         true           509                 
+6    2         true           1                   
 7    2         false          ;                   
-8    3         false          back                
-9    3         true           0                   
-10   3         false          ;                   
-11   4         false          }                   
+8    3         false          init                
+9    3         false          short               
+10   3         false          lok                 
+11   3         false          =                   
+12   3         true           2                   
+13   3         false          ;                   
+14   5         false          while               
+15   5         false          (                   
+16   5         false          lol                 
+17   5         false          )                   
+18   6         false          {                   
+19   8         false          }                   
+20   10        false          back                
+21   10        true           0                   
+22   10        false          ;                   
+23   11        false          }                   
 
 ---- Таблица лексем ------
 1         g
 2         {
 3         dti=l;
-4         bl;
-5         }
+4         dti=l;
+6         w(i)
+7         {
+9         }
+11        bl;
+12        }
 ---- Таблица идентификаторов ------
 №    Name      DataType     IdType         Ind tokenlist    Value               
-0    rez       short        variable       4                509
+0    lol       short        variable       4                1
+1    lok       short        variable       10               2
 
 ---------Промежуточный код------------------------------
 00 g
 01 {
 02 dti=l;
-03 bl;
-04 }
-	 	 Синтаксический Анализ
-Шаг :Правило             Входная лента                 Стек                
-0   :S->g{N}             g{dti=l;bl;}                  S$                  
-1   : SAVESTATE:          1
-1   :                    g{dti=l;bl;}                  g{N}$               
-2   : LENTA_END           
-3   :                    {dti=l;bl;}                   {N}$                
-4   : LENTA_END           
-5   :                    dti=l;bl;}                    N}$                 
-6   : LENTA_END           
-7   :N->dti;N            dti=l;bl;}                    N}$                 
-8   : SAVESTATE:          2
-8   :                    dti=l;bl;}                    dti;N}$             
-9   : LENTA_END           
-10  :                    ti=l;bl;}                     ti;N}$              
-11  : LENTA_END           
-12  :                    i=l;bl;}                      i;N}$               
-13  : LENTA_END           
-14  :                    =l;bl;}                       ;N}$                
-15  : LENTA_END           
-16  : TS_NOK/NS_NORULECHIN
-16  : RESSTATE            
-16  :                    dti=l;bl;}                    N}$                 
-17  : LENTA_END           
-18  :N->dti=E;N          dti=l;bl;}                    N}$                 
-19  : SAVESTATE:          2
-19  :                    dti=l;bl;}                    dti=E;N}$           
-20  : LENTA_END           
-21  :                    ti=l;bl;}                     ti=E;N}$            
-22  : LENTA_END           
-23  :                    i=l;bl;}                      i=E;N}$             
-24  : LENTA_END           
-25  :                    =l;bl;}                       =E;N}$              
-26  : LENTA_END           
-27  :                    l;bl;}                        E;N}$               
-28  : LENTA_END           
-29  :E->l                l;bl;}                        E;N}$               
-30  : SAVESTATE:          3
-30  :                    l;bl;}                        l;N}$               
-31  : LENTA_END           
-32  :                    ;bl;}                         ;N}$                
-33  : LENTA_END           
-34  :                    bl;}                          N}$                 
-35  : LENTA_END           
-36  :N->bE;              bl;}                          N}$                 
-37  : SAVESTATE:          4
-37  :                    bl;}                          bE;}$               
-38  : LENTA_END           
-39  :                    l;}                           E;}$                
-40  : LENTA_END           
-41  :E->l                l;}                           E;}$                
-42  : SAVESTATE:          5
-42  :                    l;}                           l;}$                
-43  : LENTA_END           
-44  :                    ;}                            ;}$                 
-45  : LENTA_END           
-46  :                    }                             }$                  
-47  : LENTA_END           
-48  :                                                  $                   
-49  : LENTA_END           
-50  : LENTA_END           
-51  : ------>LENTA_END    
--------------------------------------------------------------------------------------
-0   :всего строк 12, синтаксический анализ выполнен без ошибок 
-
-
--------------------Дерево разбора-------------------------- 
-0   : S->g{N}             
-2   : N->dti=E;N          
-6   : E->l                
-8   : N->bE;              
-9   : E->l                
+03 dti=l;
+05 w(i)
+06 {
+08 }
+10 bl;
+11 }

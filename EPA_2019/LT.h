@@ -31,7 +31,14 @@
 #define	LEX_STAR		'*'			// *
 #define	LEX_DIRSLASH	'/'			// /
 #define	LEX_EQUAL		'='			// =
-#define	LEX_NOT_EQUALS	'n'			// !=
+#define	LEX_LESS		'<'			// <
+#define	LEX_LAGRER		'>'			// >
+#define	LEX_MAE		    '&'	      	// >=
+#define	LEX_LAE		    '|'		    // <=
+#define	LEX_NOT_EQUALS	'n'			// ne
+#define LEX_RAVN		'~'		    //  == (ravn)
+#define LEX_WHILE		'w'			//  while
+
 #define	LEX_TYPE_SHR	    "short"	
 #define	LEX_TYPE_STR	    "str"	
 #define	LEX_TYPE_FUNCTION	"function"	

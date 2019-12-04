@@ -52,6 +52,7 @@ namespace Error
 		ERROR_ENTRY(604, "[Синтаксическая] Ошибка в конструкции функции"),
 		ERROR_ENTRY(605, "[Семантическая] В if не может использоваться переменная, которой не присвоено значение"),
 		ERROR_ENTRY(606, "[Семантическая] Параметр не определен (использование в if невозможно!)"),
+		ERROR_ENTRY(607, "[Семантическая] Параметр не определен (использование в while невозможно!)"),
 		ERROR_ENTRY(620),ERROR_ENTRY_NODEF10(630),ERROR_ENTRY_NODEF10(640),
 		ERROR_ENTRY_NODEF10(650),ERROR_ENTRY_NODEF10(660),ERROR_ENTRY_NODEF10(670),ERROR_ENTRY_NODEF10(680),ERROR_ENTRY_NODEF10(690),
 		ERROR_ENTRY_NODEF100(700), ERROR_ENTRY_NODEF100(800),ERROR_ENTRY_NODEF100(900)

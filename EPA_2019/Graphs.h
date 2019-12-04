@@ -38,6 +38,32 @@
 	FST::NODE(1,FST::RELATION('-',1)), \
 	FST::NODE()
 
+//////////////////////
+
+#define GRAPH_LESS 2, \
+	FST::NODE(1,FST::RELATION('<',1)), \
+	FST::NODE()
+
+
+#define GRAPH_LARGER 2, \
+	FST::NODE(1,FST::RELATION('>',1)), \
+	FST::NODE()
+
+#define GRAPH_MAE 3, \
+	FST::NODE(1,FST::RELATION('>',1)), \
+	FST::NODE(1,FST::RELATION('=',2)), \
+	FST::NODE()
+
+#define GRAPH_LAE 3, \
+	FST::NODE(1,FST::RELATION('<',1)), \
+	FST::NODE(1,FST::RELATION('=',2)), \
+	FST::NODE()
+
+#define GRAPH_RAVN 2, \
+	FST::NODE(1,FST::RELATION('&',1)), \
+	FST::NODE()
+//////////////////////
+
 #define GRAPH_ASTERISK 2, \
 	FST::NODE(1,FST::RELATION('*',1)), \
 	FST::NODE()
@@ -54,6 +80,15 @@
 #define GRAPH_IF 3,    \
 	FST::NODE(1, FST::RELATION('i',1)),	\
 	FST::NODE(1, FST::RELATION('f',2)),	\
+	FST::NODE()
+
+
+#define GRAPH_WHILE 6,    \
+	FST::NODE(1, FST::RELATION('w',1)),	\
+	FST::NODE(1, FST::RELATION('h',2)),	\
+	FST::NODE(1, FST::RELATION('i',3)),	\
+	FST::NODE(1, FST::RELATION('l',4)),	\
+	FST::NODE(1, FST::RELATION('e',5)),	\
 	FST::NODE()
 
 #define GRAPH_SHORT_LITERAL 2, \

@@ -24,29 +24,29 @@ int _tmain(int argc, _TCHAR* argv[])
 		Log::writeLexicalTable(log, tables.Lextable);	             	// Запись таблицы лекс.		
 		Log::writeIDtable(log, tables.IDtable);	                     	// Запись таблицы индент.	
 		Log::writeIntermediateCode(log, tables.Lextable);               // Запись промежуточного кода
-		semantika = SemanticAnalyze(tables.Lextable, in, tables.IDtable, log); //запуск семантического анализа
-		if (semantika == true)
-		{
-			MFST::Mfst mfst(tables, GRB::getGreibach());                    // Инициализация для синтаксического анализатора
-			MFST_TRACE_START(log);                                          // Шапка
-			sintaksis = mfst.start(log);                                    // Старт синтаксического анализа
-			if (sintaksis == false)
-				throw ERROR_THROW(8);
-			mfst.savededucation();                                          // Сохранить правила вывода
-			mfst.printrules(log);                                           // Печать дерева разбора
-		}
-		if (sintaksis == true)
-		{
-			Generation(tables.Lextable, in.tokens, tables.IDtable);         // Трансляция кода
-			PN Polish;                                                      // Объявление переменной Polish польз.типа PN
-			if (Polish.CreatePolishNotation(&tables))                       // Построение польской нотации
-			{
-				*log.stream << "\n-------Польская запись завершена!-------------------";
-				Log::writeIntermediateCode(log, tables.Lextable);
-			}
-		}
-		Log::Close(log);												// Закрытие log файла		
-		Log::Close(out);												// Закрытие out файла
+		//semantika = SemanticAnalyze(tables.Lextable, in, tables.IDtable, log); //запуск семантического анализа
+		//if (semantika == true)
+		//{
+		//	MFST::Mfst mfst(tables, GRB::getGreibach());                    // Инициализация для синтаксического анализатора
+		//	MFST_TRACE_START(log);         я                                 // Шапка
+		//	sintaksis = mfst.start(log);                                    // Старт синтаксического анализа
+		//	if (sintaksis == false)
+		//		throw ERROR_THROW(8);
+		//	mfst.savededucation();                                          // Сохранить правила вывода
+		//	mfst.printrules(log);                                           // Печать дерева разбора
+		//}
+		//if (sintaksis == true)
+		//{
+		//	Generation(tables.Lextable, in.tokens, tables.IDtable);         // Трансляция кода
+		//	PN Polish;                                                      // Объявление переменной Polish польз.типа PN
+		//	if (Polish.CreatePolishNotation(&tables))                       // Построение польской нотации
+		//	{
+		//		*log.stream << "\n-------Польская запись завершена!-------------------";
+		//		Log::writeIntermediateCode(log, tables.Lextable);
+		//	}
+		//}
+		//Log::Close(log);												// Закрытие log файла		
+		//Log::Close(out);												// Закрытие out файла
 
 		cout << "Finish!\n";
 
