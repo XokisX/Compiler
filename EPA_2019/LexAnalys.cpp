@@ -8,6 +8,7 @@ namespace LeX
 		{ LEX_NOT_EQUALS, FST::FST(GRAPH_NOT_EQUALS) },
 		{ LEX_SHORT, FST::FST(GRAPH_SHORT) },
 		{ LEX_STRLEN, FST::FST(GRAPH_STRLEN) },
+		{ LEX_CMP, FST::FST(GRAPH_CMP) },
 		//{ LEX_SUBSTR, FST::FST(GRAPH_SUBSTR) },
 		//{ LEX_STEPEN, FST::FST(GRAPH_STEPEN) },
 		{ LEX_WHILE, FST::FST(GRAPH_WHILE) },
@@ -97,10 +98,21 @@ namespace LeX
 					//}
 					case LEX_WHILE:
 					{
-						if (IT::IsId(Tables.IDtable, InStruct.tokens[i + 2].token) == -1) {
+						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::SHR, IT::S);
+						if (IT::IsId(Tables.IDtable, InStruct.tokens[i + 2].token) == -1 || *(InStruct.tokens[i + 5].token) != LEX_RIGHTTHESIS) {
 							throw ERROR_THROW_IN(604, InStruct.tokens[i + 2].line, NULL);
 						}
 						LT::Entry entrylt(LEX_WHILE, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
+						LT::Add(Tables.Lextable, entrylt);
+						break;
+					}
+					case LEX_CMP:
+					{
+						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::SHR, IT::S);
+						if (IT::IsId(Tables.IDtable, InStruct.tokens[i + 2].token) == -1 && *(InStruct.tokens[i + 5].token) != LEX_RIGHTTHESIS) {
+							throw ERROR_THROW_IN(605, InStruct.tokens[i + 2].line, NULL);
+						}
+						LT::Entry entrylt(LEX_CMP, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
 						LT::Add(Tables.Lextable, entrylt);
 						break;
 					}
@@ -124,7 +136,7 @@ namespace LeX
 						}
 						IT::Add(Tables.IDtable, entryit);
 
-						IT::Add(Tables.IDtable, entryit);
+						//IT::Add(Tables.IDtable, entryit);
 						LT::Entry entrylt(LEX_STRLEN, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
 						LT::Add(Tables.Lextable, entrylt);
 						break;

@@ -14,9 +14,8 @@
 #define LEX_IF          'u'			// if
 #define	LEX_DEF		    'd'			// Init
 #define LEX_STANDART    'B'         // Объявления встроенной библиотеки
-#define LEX_STRLEN      'e'         // Встроенная библиотека strlen
-//#define LEX_SUBSTR      's'         // Встроенная библиотека substr
-//#define LEX_STEPEN      'p'         // Встроенная библиотека stepen
+#define LEX_STRLEN      'E'         // Встроенная библиотека strlen
+#define LEX_CMP         'C'         // Встроенная библиотека CMP
 #define	LEX_BACK		'b'			// Return
 #define	LEX_OUT		    'o'			// Out
 #define	LEX_GLAVN		'g'			// Glavn
@@ -37,6 +36,7 @@
 #define	LEX_LAE		    '|'		    // <=
 #define	LEX_NOT_EQUALS	'n'			// ne
 #define LEX_RAVN		'~'		    //  == (ravn)
+
 #define LEX_WHILE		'w'			//  while
 
 #define	LEX_TYPE_SHR	    "short"	

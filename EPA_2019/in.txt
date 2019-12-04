@@ -3,10 +3,7 @@ glavn
 init short lol=1;
 init short lok=2;
 
-while(lol)
-{
-
-}
+compare(lol,lok);
 
 back 0;
 }
