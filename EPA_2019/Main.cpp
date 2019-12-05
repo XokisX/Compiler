@@ -24,11 +24,14 @@ int _tmain(int argc, _TCHAR* argv[])
 		Log::writeLexicalTable(log, tables.Lextable);	             	// Запись таблицы лекс.		
 		Log::writeIDtable(log, tables.IDtable);	                     	// Запись таблицы индент.	
 		Log::writeIntermediateCode(log, tables.Lextable);               // Запись промежуточного кода
-		//semantika = SemanticAnalyze(tables.Lextable, in, tables.IDtable, log); //запуск семантического анализа
+		semantika = SemanticAnalyze(tables.Lextable, in, tables.IDtable, log); //запуск семантического анализа
+		if (semantika) {
+			cout << "work!" << endl;
+		}
 		//if (semantika == true)
 		//{
 		//	MFST::Mfst mfst(tables, GRB::getGreibach());                    // Инициализация для синтаксического анализатора
-		//	MFST_TRACE_START(log);         я                                 // Шапка
+		//	MFST_TRACE_START(log);                                        // Шапка
 		//	sintaksis = mfst.start(log);                                    // Старт синтаксического анализа
 		//	if (sintaksis == false)
 		//		throw ERROR_THROW(8);

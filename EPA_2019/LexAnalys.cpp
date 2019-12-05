@@ -149,11 +149,11 @@ namespace LeX
 							throw ERROR_THROW_IN(103, InStruct.tokens[i].line, NULL);
 							break;
 						}
-						if (IT::IsId(Tables.IDtable, InStruct.tokens[i].token) != -1 && (Tables.Lextable.table[i - 2].lexema == LEX_IF))
+						/*if (IT::IsId(Tables.IDtable, InStruct.tokens[i].token) != -1 && (Tables.Lextable.table[i - 2].lexema == LEX_IF))
 						{
 							if (IT::GetEntry(Tables.IDtable, IT::IsId(Tables.IDtable, InStruct.tokens[i].token)).value.vshort == 0)
 								throw ERROR_THROW_IN(602, Tables.Lextable.table[i].sn, NULL);
-						}
+						}*/
 						if (IT::IsId(Tables.IDtable, InStruct.tokens[i].token) == -1)
 						{
 							if (Tables.Lextable.table[i - 1].lexema == LEX_SEPARATOR || Tables.Lextable.table[i - 1].lexema == LEX_LEFTHESIS || Tables.Lextable.table[i - 1].lexema == LEX_COMMA || Tables.Lextable.table[i - 1].lexema == LEX_BACK)
@@ -254,32 +254,32 @@ namespace LeX
 												//cout << entryit.value.vint;
 												IT::Add(Tables.IDtable, entryit);
 											}
-											else if (!strcmp(InStruct.tokens[i - 1].token, LEX_TYPE_STR))
-											{
-												IT::Entry entryit(InStruct.tokens[i].token, i, IT::STR, IT::V);
-												if (!strcmp(InStruct.tokens[i + 2].token, "substr"))
-												{
-													for (int j = 0; j < Tables.IDtable.size; j++)
-													{
-														if (!strcmp(InStruct.tokens[i + 4].token, Tables.IDtable.table[j].id))
-														{
-															int a = atoi(InStruct.tokens[i + 6].token);
-															int b = atoi(InStruct.tokens[i + 8].token);
-															char str[TI_STR_MAXSIZE];
-															strcpy(str, Tables.IDtable.table[j].value.vstr.str);
-															char *c = str;
-															c = c + a; // на a-й  символ в строке															
-															char *buf = new char[b];
-															strncpy(buf, c, b);
-															strncpy(entryit.value.vstr.str, buf, b);
-															break;
-														}
-													}
-													break;
-												}
+											//else if (!strcmp(InStruct.tokens[i - 1].token, LEX_TYPE_STR))
+											//{
+											//	IT::Entry entryit(InStruct.tokens[i].token, i, IT::STR, IT::V);
+											//	if (!strcmp(InStruct.tokens[i + 2].token, "substr"))
+											//	{
+											//		for (int j = 0; j < Tables.IDtable.size; j++)
+											//		{
+											//			if (!strcmp(InStruct.tokens[i + 4].token, Tables.IDtable.table[j].id))
+											//			{
+											//				int a = atoi(InStruct.tokens[i + 6].token);
+											//				int b = atoi(InStruct.tokens[i + 8].token);
+											//				char str[TI_STR_MAXSIZE];
+											//				strcpy(str, Tables.IDtable.table[j].value.vstr.str);
+											//				char *c = str;
+											//				c = c + a; // на a-й  символ в строке															
+											//				char *buf = new char[b];
+											//				strncpy(buf, c, b);
+											//				strncpy(entryit.value.vstr.str, buf, b);
+											//				break;
+											//			}
+											//		}
+											//		break;
+											//	}
 
-												IT::Add(Tables.IDtable, entryit);
-											}
+											//	IT::Add(Tables.IDtable, entryit);
+											//}
 											
 
 											if (InStruct.tokens[i + 1].token[0] == LEX_RIGHTTHESIS)
@@ -365,7 +365,7 @@ namespace LeX
 						LT::Add(Tables.Lextable, entrylt);
 						break;
 					}
-					/////////////////////////////////////
+					/////////////////////////////////////				
 					case LEX_LAGRER:
 					{
 						LT::Entry entrylt(LEX_LAGRER, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
@@ -507,8 +507,14 @@ namespace LeX
 			isExecuted = false;
 			isLiteral = false;
 		}
+		int temp = Tables.Lextable.table[0].sn;
 		for (int i = 0; i < Tables.Lextable.size;i++) {
-			cout << Tables.Lextable.table[i].lexema << endl;
+			if (temp != Tables.Lextable.table[i].sn) {
+				cout << endl;
+				temp = Tables.Lextable.table[i].sn;
+			}
+			cout << Tables.Lextable.table[i].lexema;
+			
 		}
 		return Tables; //возвращаем таблицу лексем
 	}

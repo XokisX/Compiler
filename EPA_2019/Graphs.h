@@ -183,16 +183,6 @@
 	FST::NODE(1,FST::RELATION('e',7)), \
 	FST::NODE()
 
-//#define GRAPH_SUBSTR 7, \
-//	FST::NODE(1,FST::RELATION('s',1)), \
-//	FST::NODE(1,FST::RELATION('u',2)), \
-//	FST::NODE(1,FST::RELATION('b',3)), \
-//	FST::NODE(1,FST::RELATION('s',4)), \
-//	FST::NODE(1,FST::RELATION('t',5)), \
-//	FST::NODE(1,FST::RELATION('r',6)), \
-//	FST::NODE()
-
-
 #define GRAPH_GLAVN 6, \
 	FST::NODE(1,FST::RELATION('g',1)), \
 	FST::NODE(1,FST::RELATION('l',2)), \

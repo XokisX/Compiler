@@ -1,13 +1,13 @@
 
------ Протокол ------ Дата: 05.12.2019 00:25:21 --------
+----- Протокол ------ Дата: 05.12.2019 03:28:29 --------
 ----- Параметры --------
 -in: in.txt
 -out: out.txt
 -log: log.txt
 ---- Исходные данные ------
-Количество символов:  75
+Количество символов:  76
 Проигнорировано	   :  0
-Количество строк   :  9
+Количество строк   : 12
 ---- Таблица слов ------
 №    Line      isLiteral      Token               
 0    0         false          glavn               
@@ -16,44 +16,52 @@
 3    2         false          short               
 4    2         false          lol                 
 5    2         false          =                   
-6    2         true           1                   
+6    2         true           0                   
 7    2         false          ;                   
 8    3         false          init                
 9    3         false          short               
 10   3         false          lok                 
 11   3         false          =                   
-12   3         true           2                   
+12   3         true           12                  
 13   3         false          ;                   
-14   5         false          compare             
+14   5         false          if                  
 15   5         false          (                   
 16   5         false          lol                 
-17   5         false          ,                   
-18   5         false          lok                 
+17   5         false          >                   
+18   5         false          =                   
 19   5         false          )                   
-20   5         false          ;                   
-21   7         false          back                
-22   7         true           0                   
-23   7         false          ;                   
-24   8         false          }                   
+20   6         false          {                   
+21   8         false          }                   
+22   10        false          back                
+23   10        true           0                   
+24   10        false          ;                   
+25   11        false          }                   
 
 ---- Таблица лексем ------
 1         g
 2         {
 3         dti=l;
 4         dti=l;
-6         C(i,i);
-8         bl;
+6         u(i>=)
+7         {
 9         }
+11        bl;
+12        }
 ---- Таблица идентификаторов ------
 №    Name      DataType     IdType         Ind tokenlist    Value               
-0    lol       short        variable       4                1
-1    lok       short        variable       10               2
+0    lol       short        variable       4                0
+1    lok       short        variable       10               12
 
 ---------Промежуточный код------------------------------
 00 g
 01 {
 02 dti=l;
 03 dti=l;
-05 C(i,i);
-07 bl;
+05 u(i>=)
+06 {
 08 }
+10 bl;
+11 }
+
+Ошибка 3: [Семантическая] Несоответствие типов, строка 5, позиция 0
+

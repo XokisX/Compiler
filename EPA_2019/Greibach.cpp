@@ -16,7 +16,7 @@ namespace GRB
 			Rule::Chain(4, TS('t'), TS('i'), TS(','), NS('F')),  // параметры ф-ии
 			Rule::Chain(2, TS('t'), TS('i'))
 		),
-		Rule(NS('N'), GRB_ERROR_SERIES + 4, 9,  // возможные конструкции в ф-иях
+		Rule(NS('N'), GRB_ERROR_SERIES + 4, 10,  // возможные конструкции в ф-иях
 			Rule::Chain(5, TS('d'), TS('t'), TS('i'), TS(';'), NS('N')),
 			Rule::Chain(7, TS('d'), TS('t'), TS('i'), TS('='), NS('E'), TS(';'), NS('N')),
 			Rule::Chain(5, TS('i'), TS('='), NS('E'), TS(';'), NS('N')),

@@ -1,9 +1,12 @@
 glavn
 {
-init short lol=1;
-init short lok=2;
+init short lol=0;
+init short lok= 12;
 
-compare(lol,lok);
+if(lol >= lok)
+{
+
+}
 
 back 0;
 }
