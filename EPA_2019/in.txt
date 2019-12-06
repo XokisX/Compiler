@@ -1,13 +1,27 @@
+STANDART
+
+
 glavn
 {
-init short lol=0;
-init short lok= 12;
+init str lol;
+init str lok = "1";
+init short num = 1;
+init short nm = 2;
+init short lak = 3;
 
-if(lol >= lok)
-{
+init short za = sum(num,nm,lak);
 
-}
+write(lak);
+
 
 back 0;
 }
+
+short function sum(short a, short b, short c)
+{
+
+init short result=(a+b)*c*b;
+
+back result;
+} 
 	

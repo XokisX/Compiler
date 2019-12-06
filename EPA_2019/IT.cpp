@@ -11,8 +11,12 @@ namespace IT
 		this->idxfirstLE = idxLT;
 		this->iddatatype = datatype;
 		this->idtype = idtype;
-		this->value.vshort = TI_SHORT_DEFAULT;
-		this->value.vstr.len = NULL;
+		if (datatype==STR) {
+			this->value.vstr.len = TI_STR_DEFAULT;
+		}
+		else {
+			this->value.vshort = TI_SHORT_DEFAULT;
+		}
 	}
 	IdTable Create(int size)
 	{

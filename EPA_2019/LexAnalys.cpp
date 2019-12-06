@@ -40,7 +40,7 @@ namespace LeX
 		{ LEX_EQUAL, FST::FST(GRAPH_EQUALS) }
 	};
 	LEX INITLEX(In::IN InStruct, Log::LOG &log) //функция для преобразования из токенов в лексемы
-	{
+ 	{
 		LEX Tables;
 		Tables.Lextable = LT::Create(InStruct.TokenCount); //создаём таблицу лексем
 		Tables.IDtable = IT::Create(65536); //создаём таблицу идентификаторов
@@ -109,9 +109,7 @@ namespace LeX
 					case LEX_CMP:
 					{
 						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::SHR, IT::S);
-						if (IT::IsId(Tables.IDtable, InStruct.tokens[i + 2].token) == -1 && *(InStruct.tokens[i + 5].token) != LEX_RIGHTTHESIS) {
-							throw ERROR_THROW_IN(605, InStruct.tokens[i + 2].line, NULL);
-						}
+		
 						LT::Entry entrylt(LEX_CMP, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
 						LT::Add(Tables.Lextable, entrylt);
 						break;
@@ -234,7 +232,10 @@ namespace LeX
 													{
 														flag = false;
 														//cout << re;
-														entryit.value.vshort = re;
+														if (re != 0) {
+															entryit.value.vshort = re;
+														}
+
 													}
 													l += 2;
 												}
@@ -254,32 +255,32 @@ namespace LeX
 												//cout << entryit.value.vint;
 												IT::Add(Tables.IDtable, entryit);
 											}
-											//else if (!strcmp(InStruct.tokens[i - 1].token, LEX_TYPE_STR))
-											//{
-											//	IT::Entry entryit(InStruct.tokens[i].token, i, IT::STR, IT::V);
-											//	if (!strcmp(InStruct.tokens[i + 2].token, "substr"))
-											//	{
-											//		for (int j = 0; j < Tables.IDtable.size; j++)
-											//		{
-											//			if (!strcmp(InStruct.tokens[i + 4].token, Tables.IDtable.table[j].id))
-											//			{
-											//				int a = atoi(InStruct.tokens[i + 6].token);
-											//				int b = atoi(InStruct.tokens[i + 8].token);
-											//				char str[TI_STR_MAXSIZE];
-											//				strcpy(str, Tables.IDtable.table[j].value.vstr.str);
-											//				char *c = str;
-											//				c = c + a; // на a-й  символ в строке															
-											//				char *buf = new char[b];
-											//				strncpy(buf, c, b);
-											//				strncpy(entryit.value.vstr.str, buf, b);
-											//				break;
-											//			}
-											//		}
-											//		break;
-											//	}
+											else if (!strcmp(InStruct.tokens[i - 1].token, LEX_TYPE_STR))
+											{
+												IT::Entry entryit(InStruct.tokens[i].token, i, IT::STR, IT::V);
+												if (!strcmp(InStruct.tokens[i + 2].token, "substr"))
+												{
+													for (int j = 0; j < Tables.IDtable.size; j++)
+													{
+														if (!strcmp(InStruct.tokens[i + 4].token, Tables.IDtable.table[j].id))
+														{
+															int a = atoi(InStruct.tokens[i + 6].token);
+															int b = atoi(InStruct.tokens[i + 8].token);
+															char str[TI_STR_MAXSIZE];
+															strcpy(str, Tables.IDtable.table[j].value.vstr.str);
+															char *c = str;
+															c = c + a; // на a-й  символ в строке															
+															char *buf = new char[b];
+															strncpy(buf, c, b);
+															strncpy(entryit.value.vstr.str, buf, b);
+															break;
+														}
+													}
+													break;
+												}
 
-											//	IT::Add(Tables.IDtable, entryit);
-											//}
+												IT::Add(Tables.IDtable, entryit);
+											}
 											
 
 											if (InStruct.tokens[i + 1].token[0] == LEX_RIGHTTHESIS)

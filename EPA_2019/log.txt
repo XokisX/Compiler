@@ -1,67 +1,148 @@
 
------ ฯ๐๎๒๎๊๎๋ ------ ฤเ๒เ: 05.12.2019 03:28:29 --------
+----- ฯ๐๎๒๎๊๎๋ ------ ฤเ๒เ: 06.12.2019 07:08:37 --------
 ----- ฯเ๐เ์ๅ๒๐๛ --------
 -in: in.txt
 -out: out.txt
 -log: log.txt
 ---- ศ๑๕๎ไํ๛ๅ ไเํํ๛ๅ ------
-ส๎๋่๗ๅ๑๒โ๎ ๑่์โ๎๋๎โ:  76
+ส๎๋่๗ๅ๑๒โ๎ ๑่์โ๎๋๎โ: 268
 ฯ๐๎่ใํ๎๐่๐๎โเํ๎	   :  0
-ส๎๋่๗ๅ๑๒โ๎ ๑๒๐๎๊   : 12
+ส๎๋่๗ๅ๑๒โ๎ ๑๒๐๎๊   : 26
 ---- าเแ๋่๖เ ๑๋๎โ ------
 น    Line      isLiteral      Token               
-0    0         false          glavn               
-1    1         false          {                   
-2    2         false          init                
-3    2         false          short               
-4    2         false          lol                 
-5    2         false          =                   
-6    2         true           0                   
-7    2         false          ;                   
-8    3         false          init                
-9    3         false          short               
-10   3         false          lok                 
-11   3         false          =                   
-12   3         true           12                  
-13   3         false          ;                   
-14   5         false          if                  
-15   5         false          (                   
-16   5         false          lol                 
-17   5         false          >                   
-18   5         false          =                   
-19   5         false          )                   
-20   6         false          {                   
-21   8         false          }                   
-22   10        false          back                
-23   10        true           0                   
-24   10        false          ;                   
-25   11        false          }                   
+0    0         false          STANDART            
+1    3         false          glavn               
+2    4         false          {                   
+3    5         false          init                
+4    5         false          str                 
+5    5         false          lol                 
+6    5         false          ;                   
+7    6         false          init                
+8    6         false          str                 
+9    6         false          lok                 
+10   6         false          =                   
+11   6         true           "1"                 
+12   6         false          ;                   
+13   7         false          init                
+14   7         false          short               
+15   7         false          num                 
+16   7         false          =                   
+17   7         true           1                   
+18   7         false          ;                   
+19   8         false          init                
+20   8         false          short               
+21   8         false          nm                  
+22   8         false          =                   
+23   8         true           2                   
+24   8         false          ;                   
+25   9         false          init                
+26   9         false          short               
+27   9         false          lak                 
+28   9         false          =                   
+29   9         true           3                   
+30   9         false          ;                   
+31   11        false          init                
+32   11        false          short               
+33   11        false          za                  
+34   11        false          =                   
+35   11        true           sum                 
+36   11        false          (                   
+37   11        false          num                 
+38   11        false          ,                   
+39   11        false          nm                  
+40   11        false          ,                   
+41   11        false          lak                 
+42   11        false          )                   
+43   11        false          ;                   
+44   13        false          write               
+45   13        false          (                   
+46   13        false          lak                 
+47   13        false          )                   
+48   13        false          ;                   
+49   16        false          back                
+50   16        true           0                   
+51   16        false          ;                   
+52   17        false          }                   
+53   19        false          short               
+54   19        false          function            
+55   19        false          sum                 
+56   19        false          (                   
+57   19        false          short               
+58   19        false          a                   
+59   19        false          ,                   
+60   19        false          short               
+61   19        false          b                   
+62   19        false          ,                   
+63   19        false          short               
+64   19        false          c                   
+65   19        false          )                   
+66   20        false          {                   
+67   22        false          init                
+68   22        false          short               
+69   22        false          result              
+70   22        false          =                   
+71   22        false          (                   
+72   22        false          a                   
+73   22        false          +                   
+74   22        false          b                   
+75   22        false          )                   
+76   22        false          *                   
+77   22        false          c                   
+78   22        false          *                   
+79   22        false          b                   
+80   22        false          ;                   
+81   24        false          back                
+82   24        false          result              
+83   24        false          ;                   
+84   25        false          }                   
 
 ---- าเแ๋่๖เ ๋ๅ๊๑ๅ์ ------
-1         g
-2         {
-3         dti=l;
-4         dti=l;
-6         u(i>=)
-7         {
-9         }
-11        bl;
-12        }
+1         B
+4         g
+5         {
+6         dti;
+7         dti=l;
+8         dti=l;
+9         dti=l;
+10        dti=l;
+12        dti=l(i,i,i);
+14        o(i);
+17        bl;
+18        }
+20        tfi(ti,ti,ti)
+21        {
+23        dti=(i+i)*i*i;
+25        bi;
+26        }
 ---- าเแ๋่๖เ ่ไๅํ๒่๔่๊เ๒๎๐๎โ ------
 น    Name      DataType     IdType         Ind tokenlist    Value               
-0    lol       short        variable       4                0
-1    lok       short        variable       10               12
+0    lol       str          variable       5                ฬอออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออ	
+1    lok       str          variable       9                "1"
+2    num       short        variable       15               1
+3    nm        short        variable       21               2
+4    lak       short        variable       27               3
+5    za        short        variable       33               0
+6    sum       short        function       55               65535
+7    a         short        parametr       58               65535
+8    b         short        parametr       61               65535
+9    c         short        parametr       64               65535
+10   result    short        variable       69               65535
 
 ---------ฯ๐๎์ๅๆ๓๒๎๗ํ๛้ ๊๎ไ------------------------------
-00 g
-01 {
-02 dti=l;
-03 dti=l;
-05 u(i>=)
-06 {
-08 }
-10 bl;
-11 }
-
-ฮ๘่แ๊เ 3: [ัๅ์เํ๒่๗ๅ๑๊เÿ] อๅ๑๎๎๒โๅ๒๑๒โ่ๅ ๒่๏๎โ, ๑๒๐๎๊เ 5, ๏๎็่๖่ÿ 0
-
+00 B
+03 g
+04 {
+05 dti;
+06 dti=l;
+07 dti=l;
+08 dti=l;
+09 dti=l;
+11 dti=l(i,i,i);
+13 o(i);
+16 bl;
+17 }
+19 tfi(ti,ti,ti)
+20 {
+22 dti=(i+i)*i*i;
+24 bi;
+25 }

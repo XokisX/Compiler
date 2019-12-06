@@ -1,7 +1,7 @@
 #pragma once
 #define ID_MAXSIZE		8			//макс число символов идентификатора
 #define TI_MAXSIZE		4096		//макс число количество строк в таблице идентификаторов
-#define TI_SHORT_DEFAULT	0		//значение по умолчанию для int
+#define TI_SHORT_DEFAULT	0xffff		//значение по умолчанию для int
 #define TI_STR_DEFAULT	NULL		//значение по умолчанию для string
 #define TI_NULLIDX		0xffffffff	//нет элемента таблицы идентификаторов
 #define TI_STR_MAXSIZE	255         //максимально допустимая длина строки
@@ -11,7 +11,7 @@
 
 namespace IT
 {
-	enum IDDATATYPE { SHR = 1, STR = 2 };	        //типы данных идентификаторов
+	enum IDDATATYPE { SHR = 1, STR = 2,null=3};	        //типы данных идентификаторов
 	enum IDTYPE { V = 1, F = 2, P = 3, L = 4, S = 5 };		//типы идентификаторов: переменная, функция, параметр, литерал,стандарт.библ.
 	struct Entry
 	{
@@ -31,8 +31,7 @@ namespace IT
 		}value;										//значение идентификатора
 		Entry()                                     //конструктор без параметров
 		{
-			this->value.vshort = TI_SHORT_DEFAULT;
-			this->value.vstr.len = NULL;
+		
 		}
 		Entry(char* id, int idxLT, IDDATATYPE datatype, IDTYPE idtype); //конструктор с параметрами
 	};
