@@ -1,2 +1,3 @@
-﻿  LexAnalys.cpp
+﻿  MFST.cpp
+d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\mfst.cpp(232): warning C4267: =: преобразование из "size_t" в "short"; возможна потеря данных
   EPA_2019.vcxproj -> D:\Labs\3_sem\LP\КУРСАЧ\EPA_2019\Debug\EPA_2019.exe

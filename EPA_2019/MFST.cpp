@@ -163,9 +163,13 @@ namespace MFST
 			break;
 		case NS_NORULE:         MFST_TRACE4(log, "------>NS_NORULE")
 			*log.stream << "-------------------------------------------------------------------------------------" << endl;
-			*log.stream << getDiagnosis(0, buf) << endl;
-			*log.stream << getDiagnosis(1, buf) << endl;
-			*log.stream << getDiagnosis(2, buf) << endl;
+			try {
+				*log.stream << getDiagnosis(0, buf) << endl;
+				
+			}
+			catch (exception err) {
+				cout << "Правил нет" << endl;
+			}
 			break;
 		case NS_NORULECHAIN:       MFST_TRACE4(log, "------>NS_NORULECHAIN") break;
 		case NS_ERROR:             MFST_TRACE4(log, "------>NS_ERROR") break;

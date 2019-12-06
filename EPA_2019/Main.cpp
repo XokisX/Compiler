@@ -28,16 +28,16 @@ int _tmain(int argc, _TCHAR* argv[])
 		if (semantika) {
 			cout << "work!" << endl;
 		}
-		//if (semantika == true)
-		//{
-		//	MFST::Mfst mfst(tables, GRB::getGreibach());                    // Инициализация для синтаксического анализатора
-		//	MFST_TRACE_START(log);                                        // Шапка
-		//	sintaksis = mfst.start(log);                                    // Старт синтаксического анализа
-		//	if (sintaksis == false)
-		//		throw ERROR_THROW(8);
-		//	mfst.savededucation();                                          // Сохранить правила вывода
-		//	mfst.printrules(log);                                           // Печать дерева разбора
-		//}
+		if (semantika == true)
+		{
+			MFST::Mfst mfst(tables, GRB::getGreibach());                    // Инициализация для синтаксического анализатора
+			MFST_TRACE_START(log);                                        // Шапка
+			sintaksis = mfst.start(log);                                    // Старт синтаксического анализа
+			if (sintaksis == false)
+				throw ERROR_THROW(8);
+			mfst.savededucation();                                          // Сохранить правила вывода
+			mfst.printrules(log);                                           // Печать дерева разбора
+		}
 		//if (sintaksis == true)
 		//{
 		//	Generation(tables.Lextable, in.tokens, tables.IDtable);         // Трансляция кода

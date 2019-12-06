@@ -302,6 +302,17 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 			break;
 		}
 		
+		case LEX_DEF: 
+		{
+			if (Lextable.table[i+2].lexema== LEX_IF||Lextable.table[i+2].lexema== LEX_BACK ||Lextable.table[i+2].lexema== LEX_OUT ||Lextable.table[i+2].lexema== LEX_GLAVN ||
+				Lextable.table[i + 2].lexema == LEX_WHILE ||Lextable.table[i + 2].lexema == LEX_FUNCTION ||Lextable.table[i + 2].lexema == LEX_DEF ||Lextable.table[i + 2].lexema == LEX_STANDART ||
+				Lextable.table[i + 2].lexema == LEX_STRLEN ||Lextable.table[i + 2].lexema == LEX_CMP||Lextable.table[i + 2].lexema == LEX_SHORT)
+			{
+				throw ERROR_THROW_IN(610, Lextable.table[i].sn, NULL);
+				choise = false;
+			}
+			break;
+		}
 
 		}
 	}
