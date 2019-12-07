@@ -1,5 +1,13 @@
 STANDART;
 
+short function func(short  a, short  b, short c)
+{
+init short result;
+result=(a*b)+c;
+back result;
+}
+
+
 glavn
 {
 
@@ -7,18 +15,17 @@ init str lol="lol";
 init str lok="312";
 init short num=1;
 init short min=2;
+init short q=strlen(lol);
 
-num = compare(lol,lok);
-
+init short lollol;
+init short numi = compare(lol,lok);
+lollol=func(min,min,min);
 if(num % min)
 {
 write(num);
 }
 
-while(num < min)
-{
-write(num);
-}
+
 back 0;
 }
 

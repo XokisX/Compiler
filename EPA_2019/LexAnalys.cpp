@@ -110,8 +110,12 @@ namespace LeX
 						}
 						if (IT::IsId(Tables.IDtable, InStruct.tokens[i].token) == -1)
 						{
-							if (Tables.Lextable.table[i - 1].lexema == LEX_SEPARATOR || Tables.Lextable.table[i - 1].lexema == LEX_LEFTHESIS || Tables.Lextable.table[i - 1].lexema == LEX_COMMA || Tables.Lextable.table[i - 1].lexema == LEX_BACK)
+							if (Tables.Lextable.table[i - 1].lexema == LEX_SEPARATOR ||
+								Tables.Lextable.table[i - 1].lexema == LEX_LEFTHESIS ||
+								Tables.Lextable.table[i - 1].lexema == LEX_COMMA ||
+								Tables.Lextable.table[i - 1].lexema == LEX_BACK)
 							{
+								cout << InStruct.tokens[Tables.Lextable.table[i].tokenId].token;
 								throw ERROR_THROW_IN(105, InStruct.tokens[i].line, NULL);
 								break;
 							}

@@ -16,6 +16,7 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 
 	for (int i = 0, j; i < Lextable.size; i++)
 	{
+		cout << Lextable.table[i].lexema;
 		switch (Lextable.table[i].lexema)
 		{
 		case LEX_SHORT:
@@ -158,7 +159,8 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 				throw ERROR_THROW_IN(4, Lextable.table[i].sn, NULL);
 				choise = false;
 			}
-			if (IT::IsId(idtable, InStruct.tokens[i].token) == -1 && ((Lextable.table[i - 1].lexema != LEX_SHORT && Lextable.table[i - 2].lexema != LEX_DEF) || (Lextable.table[i - 1].lexema != LEX_FUNCTION && Lextable.table[i - 2].lexema != LEX_SHORT)))
+			if (IT::IsId(idtable, InStruct.tokens[i].token) == -1 && ((Lextable.table[i - 1].lexema != LEX_SHORT && Lextable.table[i - 2].lexema != LEX_DEF) 
+				|| (Lextable.table[i - 1].lexema != LEX_FUNCTION && Lextable.table[i - 2].lexema != LEX_SHORT)))
 			{
 				throw ERROR_THROW_IN(105, Lextable.table[i].sn, NULL);
 				choise = false;
@@ -295,7 +297,7 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 			}
 			if (schet != 0)
 				throw ERROR_THROW_IN(609, Lextable.table[i].sn, NULL);
-			if (idtable.table[Lextable.table[i + 2].idxTI].value.vshort == TI_SHORT_DEFAULT || idtable.table[Lextable.table[i + 2].idxTI].value.vstr.len == 0)
+			if (idtable.table[Lextable.table[i + 2].idxTI].value.vshort == TI_SHORT_DEFAULT && idtable.table[Lextable.table[i + 2].idxTI].value.vstr.len == 0)
 			{
 				throw ERROR_THROW_IN(609, Lextable.table[i].sn, NULL);
 				choise = false;
