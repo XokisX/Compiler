@@ -16,13 +16,16 @@ namespace GRB
 			Rule::Chain(4, TS('t'), TS('i'), TS(','), NS('F')),  // параметры ф-ии
 			Rule::Chain(2, TS('t'), TS('i'))
 		),
-		Rule(NS('N'), GRB_ERROR_SERIES + 4, 10,  // возможные конструкции в ф-иях
+		Rule(NS('N'), GRB_ERROR_SERIES + 4, 11,  // возможные конструкции в ф-иях
 			Rule::Chain(5, TS('d'), TS('t'), TS('i'), TS(';'), NS('N')),
 			Rule::Chain(7, TS('d'), TS('t'), TS('i'), TS('='), NS('E'), TS(';'), NS('N')),
 			Rule::Chain(5, TS('i'), TS('='), NS('E'), TS(';'), NS('N')),
 			Rule::Chain(8, TS('u'), TS('('), NS('E'), TS(')'), TS('{'), NS('N'), TS('}'), NS('N')),
-			Rule::Chain(7, TS('u'), TS('('), NS('E'), TS(')'), TS('{'), NS('N'), TS('}')),
+			//Rule::Chain(7, TS('u'), TS('('), NS('E'), TS(')'), TS('{'), NS('N'), TS('}')),
 			Rule::Chain(6, TS('o'), TS('('), NS('E'), TS(')'), TS(';'), NS('N')),
+			Rule::Chain(12, TS('d'),TS('t'),TS('i'),TS('='),TS('C'), TS('('), NS('E'), TS(','), NS('E'), TS(')'), TS(';'), NS('N')),//////////////////////
+			Rule::Chain(10, TS('i'),TS('='),TS('C'), TS('('), NS('E'), TS(','), NS('E'), TS(')'), TS(';'), NS('N')),//////////////////////
+			Rule::Chain(9, TS('w'),TS('('),TS('E'), NS('M'),NS('E'), TS(')'), TS('{'), NS('N'), TS('}')),//////////////////////
 			Rule::Chain(5, TS('o'), TS('('), NS('E'), TS(')'), TS(';')),
 			Rule::Chain(4, TS('i'), TS('='), NS('E'), TS(';')),
 			Rule::Chain(3, TS('b'), NS('E'), TS(';'))
@@ -55,11 +58,18 @@ namespace GRB
 			Rule::Chain(3, TS('i'), TS(','), NS('W')),
 			Rule::Chain(3, TS('l'), TS(','), NS('W'))
 		),
-		Rule(NS('M'), GRB_ERROR_SERIES + 1, 8, // знаки
+		Rule(NS('M'), GRB_ERROR_SERIES + 1, 15, // знаки
+			Rule::Chain(2, TS('<'), NS('E')),
+			Rule::Chain(2, TS('>'), NS('E')),
+			Rule::Chain(2, TS('|'), NS('E')),
+			Rule::Chain(2, TS('~'), NS('E')),
+			Rule::Chain(2, TS('^'), NS('E')),
+			Rule::Chain(2, TS('%'), NS('E')),
 			Rule::Chain(2, TS('*'), NS('E')),
 			Rule::Chain(2, TS('/'), NS('E')),
 			Rule::Chain(2, TS('+'), NS('E')),
 			Rule::Chain(2, TS('-'), NS('E')),
+			Rule::Chain(2, TS('>'), NS('E')),
 			Rule::Chain(3, TS('+'), NS('E'), NS('M')),
 			Rule::Chain(3, TS('-'), NS('E'), NS('M')),
 			Rule::Chain(3, TS('*'), NS('E'), NS('M')),

@@ -32,9 +32,9 @@
 #define	LEX_EQUAL		'='			// =
 #define	LEX_LESS		'<'			// <
 #define	LEX_LAGRER		'>'			// >
-#define	LEX_MAE		    '&'	      	// >=
-#define	LEX_LAE		    '|'		    // <=
-#define	LEX_NOT_EQUALS	'n'			// ne
+#define	LEX_MAE		    '^'	      	// >=(^)
+#define	LEX_LAE		    '%'		    // <=
+#define	LEX_NOT_EQUALS	'|'			// ne
 #define LEX_RAVN		'~'		    //  == (ravn)
 
 #define LEX_WHILE		'w'			//  while

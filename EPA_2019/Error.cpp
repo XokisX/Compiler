@@ -56,9 +56,11 @@ namespace Error
 		ERROR_ENTRY(607, "[Семантическая] Параметр не определен (использование в while невозможно!)"),
 		ERROR_ENTRY(608, "[Семантическая] Параметр не определен (использование в Compare невозможно!)"),
 		ERROR_ENTRY(609, "[Семантическая] Ошибка в конструкции функции IF "),
-		ERROR_ENTRY(610, "[Семантическая] Нельзя сравнивать разные типы данных IF "),
+		ERROR_ENTRY(610, "[Семантическая] Ошибка в типе данных IF "),
 		ERROR_ENTRY(611, "[Семантическая] Параметр не определен "),
 		ERROR_ENTRY(612, "[Семантическая] Переменная не может использовать имя ключевых слов! "),
+		ERROR_ENTRY(613, "[Семантическая] Параметр должен быть условием! "),
+		ERROR_ENTRY(614, "[Семантическая] Ошибка в типе параметров While! "),
 		ERROR_ENTRY(620),ERROR_ENTRY_NODEF10(630),ERROR_ENTRY_NODEF10(640),
 		ERROR_ENTRY_NODEF10(650),ERROR_ENTRY_NODEF10(660),ERROR_ENTRY_NODEF10(670),ERROR_ENTRY_NODEF10(680),ERROR_ENTRY_NODEF10(690),
 		ERROR_ENTRY_NODEF100(700), ERROR_ENTRY_NODEF100(800),ERROR_ENTRY_NODEF100(900)

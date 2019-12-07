@@ -9,8 +9,6 @@ namespace LeX
 		{ LEX_SHORT, FST::FST(GRAPH_SHORT) },
 		{ LEX_STRLEN, FST::FST(GRAPH_STRLEN) },
 		{ LEX_CMP, FST::FST(GRAPH_CMP) },
-		//{ LEX_SUBSTR, FST::FST(GRAPH_SUBSTR) },
-		//{ LEX_STEPEN, FST::FST(GRAPH_STEPEN) },
 		{ LEX_WHILE, FST::FST(GRAPH_WHILE) },
 		{ LEX_IF, FST::FST(GRAPH_IF) },
 		{ LEX_STR, FST::FST(GRAPH_STR) },
@@ -64,44 +62,9 @@ namespace LeX
 						LT::Add(Tables.Lextable, entrylt);
 						break;
 					}
-					//case LEX_SUBSTR:
-					//{
-					//	IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::STR, IT::S);
-					//	for (int j = 0; j < Tables.IDtable.size; j++)
-					//	{
-					//		if (!strcmp(InStruct.tokens[i + 2].token, Tables.IDtable.table[j].id))
-					//		{
-
-					//			for (int k = 0; k < Tables.IDtable.size; k++)
-					//			{
-					//				if (!strcmp(InStruct.tokens[i - 2].token, Tables.IDtable.table[k].id))
-					//				{
-					//					int a = atoi(InStruct.tokens[i + 4].token);
-					//					int b = atoi(InStruct.tokens[i + 6].token);
-					//					char str[TI_STR_MAXSIZE];
-					//					strcpy(str, Tables.IDtable.table[j].value.vstr.str);
-					//					char *c = str;
-					//					c = c + a; // на a-й  символ в строке															
-					//					char *buf = new char[b];
-					//					strncpy(buf, c, b);
-					//					strncpy(Tables.IDtable.table[k].value.vstr.str, buf, b);
-					//				}
-					//			}
-
-					//		}
-					//	}
-					//	IT::Add(Tables.IDtable, entryit);
-					//	LT::Entry entrylt(graph[j].Lexema, InStruct.tokens[i].line, Tables.IDtable.size);
-					//	entrylt.tokenId = i;
-					//	LT::Add(Tables.Lextable, entrylt);
-					//	break;
-					//}
 					case LEX_WHILE:
 					{
-						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::SHR, IT::S);
-						if (IT::IsId(Tables.IDtable, InStruct.tokens[i + 2].token) == -1 || *(InStruct.tokens[i + 5].token) != LEX_RIGHTTHESIS) {
-							throw ERROR_THROW_IN(604, InStruct.tokens[i + 2].line, NULL);
-						}
+						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::SHR, IT::S);				
 						LT::Entry entrylt(LEX_WHILE, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
 						LT::Add(Tables.Lextable, entrylt);
 						break;
@@ -133,8 +96,6 @@ namespace LeX
 							}
 						}
 						IT::Add(Tables.IDtable, entryit);
-
-						//IT::Add(Tables.IDtable, entryit);
 						LT::Entry entrylt(LEX_STRLEN, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
 						LT::Add(Tables.Lextable, entrylt);
 						break;
@@ -147,11 +108,6 @@ namespace LeX
 							throw ERROR_THROW_IN(103, InStruct.tokens[i].line, NULL);
 							break;
 						}
-						/*if (IT::IsId(Tables.IDtable, InStruct.tokens[i].token) != -1 && (Tables.Lextable.table[i - 2].lexema == LEX_IF))
-						{
-							if (IT::GetEntry(Tables.IDtable, IT::IsId(Tables.IDtable, InStruct.tokens[i].token)).value.vshort == 0)
-								throw ERROR_THROW_IN(602, Tables.Lextable.table[i].sn, NULL);
-						}*/
 						if (IT::IsId(Tables.IDtable, InStruct.tokens[i].token) == -1)
 						{
 							if (Tables.Lextable.table[i - 1].lexema == LEX_SEPARATOR || Tables.Lextable.table[i - 1].lexema == LEX_LEFTHESIS || Tables.Lextable.table[i - 1].lexema == LEX_COMMA || Tables.Lextable.table[i - 1].lexema == LEX_BACK)
@@ -365,14 +321,8 @@ namespace LeX
 						LT::Entry entrylt(LEX_STAR, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
 						LT::Add(Tables.Lextable, entrylt);
 						break;
-					}
-					/////////////////////////////////////				
-					case LEX_LAGRER:
-					{
-						LT::Entry entrylt(LEX_LAGRER, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
-						LT::Add(Tables.Lextable, entrylt);
-						break;
-					}
+					}		
+
 					case LEX_LESS:
 					{
 						LT::Entry entrylt(LEX_LESS, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
@@ -390,8 +340,7 @@ namespace LeX
 						LT::Entry entrylt(LEX_LAE, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
 						LT::Add(Tables.Lextable, entrylt);
 						break;
-					}
-					/////////////////////////////////////////
+					}				
 					case LEX_NOT_EQUALS:
 					{
 						LT::Entry entrylt(LEX_NOT_EQUALS, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);

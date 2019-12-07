@@ -49,14 +49,12 @@
 	FST::NODE(1,FST::RELATION('>',1)), \
 	FST::NODE()
 
-#define GRAPH_MAE 3, \
-	FST::NODE(1,FST::RELATION('>',1)), \
-	FST::NODE(1,FST::RELATION('=',2)), \
+#define GRAPH_MAE 2, \
+	FST::NODE(1,FST::RELATION('^',1)), \
 	FST::NODE()
 
-#define GRAPH_LAE 3, \
-	FST::NODE(1,FST::RELATION('<',1)), \
-	FST::NODE(1,FST::RELATION('=',2)), \
+#define GRAPH_LAE 2, \
+	FST::NODE(1,FST::RELATION('%',1)), \
 	FST::NODE()
 
 #define GRAPH_RAVN 2, \

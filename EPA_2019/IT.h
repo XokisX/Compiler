@@ -5,8 +5,8 @@
 #define TI_STR_DEFAULT	NULL		//значение по умолчанию для string
 #define TI_NULLIDX		0xffffffff	//нет элемента таблицы идентификаторов
 #define TI_STR_MAXSIZE	255         //максимально допустимая длина строки
-#define SHORT_MAXSIZE     32767       //максимально допустимое значение
-#define SHORT_MINUS_MAXSIZE   -32767  //минимально допустимое значение
+#define SHORT_MAXSIZE     65534       //максимально допустимое значение
+#define SHORT_MINUS_MAXSIZE   0  //минимально допустимое значение
 
 
 namespace IT
@@ -27,7 +27,9 @@ namespace IT
 			{
 				int len;							//количество символов в string
 				char str[TI_STR_MAXSIZE - 1];		//символы string
-			}vstr;									//значение string
+			}vstr;	
+			bool boolvalue;
+			//значение string
 		}value;										//значение идентификатора
 		Entry()                                     //конструктор без параметров
 		{

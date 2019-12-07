@@ -1,21 +1,25 @@
-STANDART
-
+STANDART;
 
 glavn
 {
-init str lol;
-init str lds = "1";
-init short dasrt = 1;
-init short nm = 2;
-init short lak = 3;
 
+init str lol="lol";
+init str lok="312";
+init short num=1;
+init short min=2;
 
+num = compare(lol,lok);
 
-write(lak);
-
-
-back 0;
+if(num % min)
+{
+write(num);
 }
 
+while(num < min)
+{
+write(num);
+}
+back 0;
+}
 
 	

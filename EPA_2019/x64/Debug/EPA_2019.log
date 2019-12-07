@@ -1,0 +1,4 @@
+﻿  LexAnalys.cpp
+d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\lexanalys.cpp(91): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\lexanalys.cpp(206): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+  EPA_2019.vcxproj -> D:\Labs\3_sem\LP\КУРСАЧ\EPA_2019\x64\Debug\EPA_2019.exe
