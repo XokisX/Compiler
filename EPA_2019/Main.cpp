@@ -38,18 +38,18 @@ int _tmain(int argc, _TCHAR* argv[])
 			mfst.savededucation();                                          // Сохранить правила вывода
 			mfst.printrules(log);                                           // Печать дерева разбора
 		}
-		//if (sintaksis == true)
-		//{
-		//	Generation(tables.Lextable, in.tokens, tables.IDtable);         // Трансляция кода
-		//	PN Polish;                                                      // Объявление переменной Polish польз.типа PN
-		//	if (Polish.CreatePolishNotation(&tables))                       // Построение польской нотации
-		//	{
-		//		*log.stream << "\n-------Польская запись завершена!-------------------";
-		//		Log::writeIntermediateCode(log, tables.Lextable);
-		//	}
-		//}
-		//Log::Close(log);												// Закрытие log файла		
-		//Log::Close(out);												// Закрытие out файла
+		if (sintaksis == true)
+		{
+			Generation(tables.Lextable, in, tables.IDtable);         // Трансляция кода
+			PN Polish;                                                      // Объявление переменной Polish польз.типа PN
+			if (Polish.CreatePolishNotation(&tables))                       // Построение польской нотации
+			{
+				*log.stream << "\n-------Польская запись завершена!-------------------";
+				Log::writeIntermediateCode(log, tables.Lextable);
+			}
+		}
+		Log::Close(log);												// Закрытие log файла		
+		Log::Close(out);												// Закрытие out файла
 
 		cout << "Finish!\n";
 

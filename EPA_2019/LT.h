@@ -12,9 +12,9 @@
 #define	LEX_LITERAL		'l'			// Литерал
 #define	LEX_FUNCTION	'f'			// Функция
 #define LEX_IF          'u'			// if
-#define	LEX_DEF		    'd'			// Init
+#define	LEX_DEF		    'd'			// defenit
 #define LEX_STANDART    'B'         // Объявления встроенной библиотеки
-#define LEX_STRLEN      'E'         // Встроенная библиотека strlen
+#define LEX_STRLEN      'e'         // Встроенная библиотека strlen
 #define LEX_CMP         'C'         // Встроенная библиотека CMP
 #define	LEX_BACK		'b'			// Return
 #define	LEX_OUT		    'o'			// Out

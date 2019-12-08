@@ -4,6 +4,7 @@ short function func(short  a, short  b, short c)
 {
 init short result;
 result=(a*b)+c;
+write("Result: " + result);
 back result;
 }
 
@@ -13,17 +14,36 @@ glavn
 
 init str lol="lol";
 init str lok="312";
-init short num=1;
+init short num=1+123;
 init short min=2;
 init short q=strlen(lol);
 
 init short lollol;
 init short numi = compare(lol,lok);
-lollol=func(min,min,min);
+
+while(min < num)
+{
+
+   min=min+1;
+   while(num>min)
+   {
+       num=num-1;
+
+   }
+
+}
+
 if(num % min)
 {
-write(num);
+   write(num);
+   if(num ^ min)
+   {
+       write("hello, i am from EPA_2019 (EPAM)");
+   }
 }
+
+
+lollol = func(min,min,min);
 
 
 back 0;

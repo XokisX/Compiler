@@ -16,7 +16,7 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 
 	for (int i = 0, j; i < Lextable.size; i++)
 	{
-		cout << Lextable.table[i].lexema;
+		
 		switch (Lextable.table[i].lexema)
 		{
 		case LEX_SHORT:
@@ -254,16 +254,14 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 				throw ERROR_THROW_IN(606, Lextable.table[i].sn, NULL);
 				choise = false;
 			}*/
-
-			if (IT::IsId(idtable, InStruct.tokens[i+2].token) == -1 || IT::IsId(idtable, InStruct.tokens[i + 4].token) == -1) {
+			
+			if ((IT::IsId(idtable, InStruct.tokens[i+2].token) == -1 || IT::IsId(idtable, InStruct.tokens[i + 4].token) == -1)||
+				(idtable.table[Lextable.table[i + 2].idxTI].iddatatype != IT::STR || idtable.table[Lextable.table[i + 4].idxTI].iddatatype != IT::STR)||
+				(idtable.table[Lextable.table[i + 2].idxTI].value.vstr.len == 0 || idtable.table[Lextable.table[i + 4].idxTI].value.vstr.len == 0)) {
 				throw ERROR_THROW_IN(606, Lextable.table[i].sn, NULL);
 				choise = false;
 			}
-			if (idtable.table[Lextable.table[i + 2].idxTI].value.vstr.len == 0 || idtable.table[Lextable.table[i + 4].idxTI].value.vstr.len == 0)
-			{
-				throw ERROR_THROW_IN(606, Lextable.table[i].sn, NULL);
-				choise = false;
-			}
+			
 			if (Standart_LIB == false)
 			{
 				throw ERROR_THROW_IN(116, Lextable.table[i].sn, NULL);

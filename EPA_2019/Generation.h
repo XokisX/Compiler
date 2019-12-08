@@ -1,4 +1,9 @@
 #pragma once
-#define Head "class Main {\n" //"шапка" нашей генерации
+#include "stdafx.h"
+#include "IT.h"
+#include "LT.h"
+#include "In.h"
 
-void Generation(LT::LexTable &Lextable, In::StToken *tokens, IT::IdTable & idtable); //создаём прототип для функции генерации
+void Head();
+void Down();
+void Generation(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idtable);
