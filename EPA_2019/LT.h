@@ -10,6 +10,8 @@
 #define LEX_OBJECT      't'			// Обьект						
 #define	LEX_ID			'i'			// Индентификатор
 #define	LEX_LITERAL		'l'			// Литерал
+#define	LEX_LITERALx2	'l'			// Литерал для двоичных чисел
+#define	LEX_LITERALx8	'l'			// Литерал для восьмеричных
 #define	LEX_FUNCTION	'f'			// Функция
 #define LEX_IF          'u'			// if
 #define	LEX_DEF		    'd'			// defenit

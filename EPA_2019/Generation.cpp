@@ -96,7 +96,9 @@ void Generation(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idtable)
 					
 					}
 					else {
-						fout << InStruct.tokens[i].token;
+						if (Lextable.table[i-2].lexema != LEX_CMP || Lextable.table[i - 2].lexema != LEX_CMP) {
+							fout << InStruct.tokens[i].token;
+						}
 					}
 					
 				}
@@ -106,7 +108,7 @@ void Generation(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idtable)
 		}
 		case LEX_OUT:
 		{
-			fout << "document.write";
+			fout << "document.writeln";
 			break;
 		}
 		case LEX_WHILE: {
@@ -161,6 +163,11 @@ void Generation(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idtable)
 		}
 		case LEX_IF: {
 			fout << InStruct.tokens[i].token;
+			break;
+		}
+		case LEX_CMP: {
+			fout << InStruct.tokens[i+2].token<<".localeCompare("<< InStruct.tokens[i + 4].token << ")";
+			i += 5;
 			break;
 		}
 		}

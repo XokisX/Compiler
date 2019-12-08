@@ -44,8 +44,10 @@ if(num % min)
 
 
 lollol = func(min,min,min);
-
-
+init short nums = 0o37123;
+init short nime = 0b11110011;
+write(nums);
+write(nime);
 back 0;
 }
 
