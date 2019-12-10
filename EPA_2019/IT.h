@@ -11,7 +11,7 @@
 
 namespace IT
 {
-	enum IDDATATYPE { SHR = 1, STR = 2,null=3};	        //типы данных идентификаторов
+	enum IDDATATYPE { SHR = 1, STR = 2};	        //типы данных идентификаторов
 	enum IDTYPE { V = 1, F = 2, P = 3, L = 4, S = 5 };		//типы идентификаторов: переменная, функция, параметр, литерал,стандарт.библ.
 	struct Entry
 	{

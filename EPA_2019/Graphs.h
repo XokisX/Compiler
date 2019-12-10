@@ -172,11 +172,10 @@
 	FST::NODE()
 
 
-#define GRAPH_DEF 5, \
-	FST::NODE(1,FST::RELATION('i',1)), \
-	FST::NODE(1,FST::RELATION('n',2)), \
-	FST::NODE(1,FST::RELATION('i',3)), \
-	FST::NODE(1,FST::RELATION('t',4)), \
+#define GRAPH_DEF 4, \
+	FST::NODE(1,FST::RELATION('d',1)), \
+	FST::NODE(1,FST::RELATION('e',2)), \
+	FST::NODE(1,FST::RELATION('f',3)), \
 	FST::NODE()
 
 

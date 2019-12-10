@@ -117,7 +117,6 @@ namespace LeX
 								Tables.Lextable.table[i - 1].lexema == LEX_COMMA ||
 								Tables.Lextable.table[i - 1].lexema == LEX_BACK)
 							{
-								cout << InStruct.tokens[Tables.Lextable.table[i].tokenId].token;
 								throw ERROR_THROW_IN(105, InStruct.tokens[i].line, NULL);
 								break;
 							}
@@ -174,32 +173,37 @@ namespace LeX
 												int l = i;
 												while (flag)
 												{
-													if (!strcmp(InStruct.tokens[l + 3].token, "/"))
-													{
-														re /= atoi(InStruct.tokens[l + 4].token);
-													}
-													else if (!strcmp(InStruct.tokens[l + 3].token, "+"))
-													{
-														re += atoi(InStruct.tokens[l + 4].token);
-													}
-													else if (!strcmp(InStruct.tokens[l + 3].token, "*"))
-													{
-														re *= atoi(InStruct.tokens[l + 4].token);
-													}
-													else if (!strcmp(InStruct.tokens[l + 3].token, "-"))
-													{
-														re -= atoi(InStruct.tokens[l + 4].token);
-													}
-													else
-													{
-														flag = false;
-														//cout << re;
-														if (re != 0) {
-															entryit.value.vshort = re;
+													if (InStruct.tokens[l + 4].token[0] !='0' && InStruct.tokens[l + 3].token!="/") {
+														if (!strcmp(InStruct.tokens[l + 3].token, "/"))
+														{
+															re /= atoi(InStruct.tokens[l + 4].token);
 														}
+														else if (!strcmp(InStruct.tokens[l + 3].token, "+"))
+														{
+															re += atoi(InStruct.tokens[l + 4].token);
+														}
+														else if (!strcmp(InStruct.tokens[l + 3].token, "*"))
+														{
+															re *= atoi(InStruct.tokens[l + 4].token);
+														}
+														else if (!strcmp(InStruct.tokens[l + 3].token, "-"))
+														{
+															re -= atoi(InStruct.tokens[l + 4].token);
+														}
+														else
+														{
+															flag = false;
+															//cout << re;
+															if (re != 0) {
+																entryit.value.vshort = re;
+															}
 
+														}
+														l += 2;
 													}
-													l += 2;
+												    else{
+														throw ERROR_THROW_IN(109, InStruct.tokens[i].line, NULL);
+													}
 												}
 
 												if (!strcmp(InStruct.tokens[i + 1].token, "strlen"))

@@ -115,6 +115,62 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 			}*/
 			if (IT::IsId(idtable, InStruct.tokens[i].token) != -1 && idtable.table[IT::IsId(idtable, InStruct.tokens[i].token)].idtype == IT::F)
 			{
+
+				int kol2 = 0;
+
+				int a = idtable.table[IT::IsId(idtable, InStruct.tokens[i].token)].idxfirstLE;
+				int saveA = a;
+
+				while (Lextable.table[a].lexema != LEX_RIGHTTHESIS)
+				{
+					if (Lextable.table[a].lexema == LEX_COMMA)
+						kol2++;
+					a++;
+				}
+				int kol = 0;
+				while (Lextable.table[i].lexema != LEX_RIGHTTHESIS)
+				{
+					if (Lextable.table[i].lexema == LEX_COMMA)
+						kol++;
+					i++;
+				}
+				if (kol != kol2)
+				{
+
+					throw ERROR_THROW_IN(122, Lextable.table[i].sn, NULL);
+					choise = false;
+				}
+				else if (a != i) {
+					int numI = 1;
+					int numA = 1;
+
+					for (int z = 0; z <= kol; z++) {
+						if (IT::IsId(idtable, InStruct.tokens[i - numI].token) != -1 && IT::IsId(idtable, InStruct.tokens[a - numA].token) != -1) {
+							if (idtable.table[IT::IsId(idtable, InStruct.tokens[i - numI].token)].iddatatype == idtable.table[IT::IsId(idtable, InStruct.tokens[a - numA].token)].iddatatype) {
+								numI += 2;
+								numA += 3;
+
+							}
+							else {
+								throw ERROR_THROW_IN(114, Lextable.table[i].sn, NULL);
+							}
+						}
+						else {
+							throw ERROR_THROW_IN(601, Lextable.table[i].sn, NULL);
+						}
+					}
+
+				}
+				while (Lextable.table[a].lexema != LEX_BACK) {
+					a++;
+				}
+				if (IT::IsId(idtable, InStruct.tokens[a + 1].token) == -1 || idtable.table[IT::IsId(idtable, InStruct.tokens[a + 1].token)].iddatatype != idtable.table[IT::IsId(idtable, InStruct.tokens[saveA].token)].iddatatype) {
+					throw ERROR_THROW_IN(3, Lextable.table[i].sn, NULL);
+				}
+				break;
+			}
+			if (IT::IsId(idtable, InStruct.tokens[i].token) != -1 && idtable.table[IT::IsId(idtable, InStruct.tokens[i].token)].idtype == IT::F)
+			{
 				int kol2 = 0;
 				int a = idtable.table[IT::IsId(idtable, InStruct.tokens[i].token)].idxfirstLE;
 				while (Lextable.table[a].lexema != LEX_RIGHTTHESIS)
@@ -159,11 +215,46 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 				throw ERROR_THROW_IN(4, Lextable.table[i].sn, NULL);
 				choise = false;
 			}
-			if (IT::IsId(idtable, InStruct.tokens[i].token) == -1 && ((Lextable.table[i - 1].lexema != LEX_SHORT && Lextable.table[i - 2].lexema != LEX_DEF) 
-				|| (Lextable.table[i - 1].lexema != LEX_FUNCTION && Lextable.table[i - 2].lexema != LEX_SHORT)))
+			if (IT::IsId(idtable, InStruct.tokens[i].token) != -1)
 			{
-				throw ERROR_THROW_IN(105, Lextable.table[i].sn, NULL);
+				if (Lextable.table[i-1].lexema==LEX_SHORT && Lextable.table[i - 2].lexema != LEX_DEF){
+					throw ERROR_THROW_IN(105, Lextable.table[i].sn, NULL);
+					choise = false;
+					break;
+				}else{
+					if (Lextable.table[i - 1].lexema == LEX_FUNCTION && Lextable.table[i - 2].lexema != LEX_SHORT) {
+						throw ERROR_THROW_IN(105, Lextable.table[i].sn, NULL);
+						choise = false;
+						break;
+					}
+					if (/*Lextable.table[i - 2].lexema != LEX_FUNCTION && Lextable.table[i - 1].lexema == LEX_SHORT&&*/IT::IsId(idtable, InStruct.tokens[i].token) != -1 && Lextable.table[i + 1].lexema == LEX_EQUAL) {
+						int j = i + 2;
+						while (Lextable.table[j].lexema != LEX_SEPARATOR)
+						{
+							if (Lextable.table[j].lexema != LEX_SHORT && Lextable.table[j].lexema != LEX_ID && Lextable.table[j].lexema != LEX_PLUS
+								&& Lextable.table[j].lexema != LEX_MINUS && Lextable.table[j].lexema != LEX_STAR && Lextable.table[j].lexema != LEX_DIRSLASH
+								&& Lextable.table[j].lexema != LEX_LITERAL && Lextable.table[j].lexema != LEX_RIGHTTHESIS && Lextable.table[j].lexema != LEX_LEFTHESIS
+								&& Lextable.table[j].lexema != LEX_CMP && Lextable.table[j].lexema != LEX_STRLEN && Lextable.table[j].lexema != LEX_COMMA) {
+								throw ERROR_THROW_IN(127, Lextable.table[i].sn, NULL);
+								choise = false;
+								break;
+							}
+							j++;
+						}
+					}
+				}
+			
+			}
+			if (IT::IsId(idtable, InStruct.tokens[i].token) != -1 && Lextable.table[i+2].lexema==LEX_MINUS) {
+				throw ERROR_THROW_IN(6, Lextable.table[i].sn, NULL);
 				choise = false;
+				break;
+			}
+			if (IT::IsId(idtable, InStruct.tokens[i].token) != -1 && Lextable.table[i-1].lexema==LEX_SHORT && Lextable.table[i - 2].lexema == LEX_DEF 
+				&& Lextable.table[i + 1].lexema != LEX_EQUAL && Lextable.table[i + 1].lexema != LEX_SEPARATOR) {
+				throw ERROR_THROW_IN(127, Lextable.table[i].sn, NULL);
+				choise = false;
+				break;
 			}
 			if ((IT::IsId(idtable, InStruct.tokens[i].token) != -1 &&
 				Lextable.table[i + 1].lexema == LEX_EQUAL &&
@@ -183,16 +274,11 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 				throw ERROR_THROW_IN(109, Lextable.table[i].sn, NULL);
 				choise = false;
 			}
+			
 			if (IT::IsId(idtable, InStruct.tokens[i].token) != -1 && Lextable.table[i + 1].lexema == LEX_EQUAL && (Lextable.table[i + 2].lexema == LEX_ID && idtable.table[IT::IsId(idtable, InStruct.tokens[i + 2].token)].iddatatype == IT::SHR) && (Lextable.table[i + 4].lexema == LEX_ID && idtable.table[IT::IsId(idtable, InStruct.tokens[i + 4].token)].iddatatype == IT::SHR))
 				break;
 			if (IT::IsId(idtable, InStruct.tokens[i].token) != -1 && Lextable.table[i + 1].lexema == LEX_EQUAL && (Lextable.table[i + 2].lexema == LEX_LITERAL && InStruct.tokens[i + 2].isStr == false) && (Lextable.table[i + 4].lexema == LEX_LITERAL && InStruct.tokens[i + 4].isStr == false))
 				break;
-			/*	if ((IT::IsId(idtable, InStruct.tokens[i].token) != -1 && Lextable.table[i + 1].lexema == LEX_EQUAL && (Lextable.table[i + 2].lexema == LEX_ID) || Lextable.table[i + 2].lexema == LEX_LITERAL) && (Lextable.table[i + 3].lexema == LEX_DIRSLASH || Lextable.table[i + 3].lexema == LEX_PLUS || Lextable.table[i + 3].lexema == LEX_MINUS || Lextable.table[i + 3].lexema == LEX_STAR)
-					&& (Lextable.table[i + 4].lexema == LEX_LITERAL || Lextable.table[i + 4].lexema == LEX_ID) && Lextable.table[i + 5].lexema == LEX_SEPARATOR)
-				{
-					throw ERROR_THROW_IN(3, Lextable.table[i].sn, NULL);
-					choise = false;
-				}*/
 			break;
 		}
 		case LEX_BACK:
@@ -249,12 +335,6 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 		}
 		case LEX_CMP:
 		{
-
-			/*if (IT::IsId(idtable, InStruct.tokens[i+2].token) == -1 || IT::IsId(idtable, InStruct.tokens[i+4].token) == -1) {
-				throw ERROR_THROW_IN(606, Lextable.table[i].sn, NULL);
-				choise = false;
-			}*/
-			
 			if ((IT::IsId(idtable, InStruct.tokens[i+2].token) == -1 || IT::IsId(idtable, InStruct.tokens[i + 4].token) == -1)||
 				(idtable.table[Lextable.table[i + 2].idxTI].iddatatype != IT::STR || idtable.table[Lextable.table[i + 4].idxTI].iddatatype != IT::STR)||
 				(idtable.table[Lextable.table[i + 2].idxTI].value.vstr.len == 0 || idtable.table[Lextable.table[i + 4].idxTI].value.vstr.len == 0)) {
@@ -271,6 +351,11 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 		}
 		case LEX_IF:
 		{
+			if ((Lextable.table[i + 5].lexema != LEX_RIGHTTHESIS) || (Lextable.table[i + 3].lexema != LEX_LAGRER && Lextable.table[i + 3].lexema != LEX_LESS && Lextable.table[i + 3].lexema != LEX_NOT_EQUALS
+				&& Lextable.table[i + 3].lexema != LEX_LAE && Lextable.table[i + 3].lexema != LEX_MAE && Lextable.table[i + 3].lexema != LEX_RAVN)) {
+				throw ERROR_THROW_IN(607, InStruct.tokens[i + 2].line, NULL);
+				choise = false;
+			}
 			if (idtable.table[Lextable.table[i + 2].idxTI].value.vshort == TI_SHORT_DEFAULT || idtable.table[Lextable.table[i + 4].idxTI].value.vshort == TI_SHORT_DEFAULT)
 			{
 				throw ERROR_THROW_IN(604, Lextable.table[i].sn, NULL);
@@ -293,6 +378,7 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 					schet++;
 				b++;
 			}
+			
 			if (schet != 0)
 				throw ERROR_THROW_IN(609, Lextable.table[i].sn, NULL);
 			if (idtable.table[Lextable.table[i + 2].idxTI].value.vshort == TI_SHORT_DEFAULT && idtable.table[Lextable.table[i + 2].idxTI].value.vstr.len == 0)
