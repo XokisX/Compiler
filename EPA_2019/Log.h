@@ -24,7 +24,7 @@ namespace Log
 	void writeIn(const LOG &log, const In::IN &in);
 	void writeError(const LOG &log, const Error::ERROR &error);
 	void writeLexicalTable(const LOG &log, LT::LexTable &lextable);
-	void writeIDtable(const LOG &log, IT::IdTable &IDtable);
+	void writeIDtable(const LOG &log, IT::IdTable &IDtable, In::IN &In, LT::LexTable &Lextable);
 	void writeAllTokens(const LOG &log, In::IN &In);
 	void writeIntermediateCode(LOG &log, LT::LexTable &lextable);
 	void Close(const LOG &log);

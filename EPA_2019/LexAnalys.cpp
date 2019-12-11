@@ -274,34 +274,6 @@ namespace LeX
 						
 						break;
 					}
-					/*case LEX_STEPEN:
-					{
-						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::SHR, IT::S);
-						int a, b;
-						for (int j = 0; j < Tables.IDtable.size; j++)
-						{
-							if (!strcmp(InStruct.tokens[i - 2].token, Tables.IDtable.table[j].id))
-							{
-								for (int k = 0; k < Tables.IDtable.size; k++)
-								{
-									if (!strcmp(InStruct.tokens[i + 2].token, Tables.IDtable.table[k].id))
-									{
-										a = Tables.IDtable.table[k].value.vshort;
-									}
-									if (!strcmp(InStruct.tokens[i + 4].token, Tables.IDtable.table[k].id))
-									{
-										b = Tables.IDtable.table[k].value.vshort;
-									}
-								}
-								Tables.IDtable.table[j].value.vshort = pow(a, b);
-								break;
-							}
-						}
-						IT::Add(Tables.IDtable, entryit);
-						LT::Entry entrylt(LEX_STEPEN, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
-						LT::Add(Tables.Lextable, entrylt);
-						break;
-					}*/
 					case LEX_IF:
 					{
 						if (IT::IsId(Tables.IDtable, InStruct.tokens[i + 2].token) == -1)

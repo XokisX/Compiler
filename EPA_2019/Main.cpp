@@ -22,7 +22,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		LeX::LEX tables = LeX::INITLEX(in, log);				     	// Получение таблицы лексем		
 		Log::writeAllTokens(log, in);									// Запись всех фраз			
 		Log::writeLexicalTable(log, tables.Lextable);	             	// Запись таблицы лекс.		
-		Log::writeIDtable(log, tables.IDtable);	                     	// Запись таблицы индент.	
+		Log::writeIDtable(log, tables.IDtable, in, tables.Lextable);	                     	// Запись таблицы индент.	
 		Log::writeIntermediateCode(log, tables.Lextable);               // Запись промежуточного кода
 		semantika = SemanticAnalyze(tables.Lextable, in, tables.IDtable, log); //запуск семантического анализа
 		if (semantika) {

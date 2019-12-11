@@ -72,7 +72,7 @@ namespace In
 				}
 				if (p == '\"')
 				{
-					while ((StrIn.code[p = txtfile.get()] != IN::QUOTE) && !txtfile.eof())
+					while ((StrIn.code[p = txtfile.get()] != IN::QUOTE && !txtfile.eof()))
 					{
 						if (p == ';')
 							throw ERROR_THROW(7);

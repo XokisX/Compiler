@@ -108,7 +108,7 @@ namespace Log {
 		}
 	}
 
-	void writeIDtable(const LOG &log, IT::IdTable &IDtable)
+	void writeIDtable(const LOG &log, IT::IdTable &IDtable, In::IN &In, LT::LexTable &Lextable)
 	{
 		*log.stream << "\n---- Таблица идентификаторов ------\n" <<
 			setw(5) << left << "№" <<
@@ -142,14 +142,23 @@ namespace Log {
 				*log.stream << ("default");
 			else
 				*log.stream << IDtable.table[i].idxfirstLE;
-
-			if (IDtable.table[i].iddatatype == IT::SHR)
-				*log.stream << IDtable.table[i].value.vshort;
-			if (IDtable.table[i].iddatatype == IT::STR)
-				*log.stream << IDtable.table[i].value.vstr.str;
-			//*log.stream << ((IDtable.table[i].value.vstr.len > 0) ? (IDtable.table[i].value.vstr.str) : (""));
 			
-			*log.stream << endl;
+				if (IDtable.table[i].iddatatype == IT::SHR)
+					if ((In.tokens[Lextable.table[IDtable.table[i].idxfirstLE].tokenId + 2].token[0] != '0'&&
+						In.tokens[Lextable.table[IDtable.table[i].idxfirstLE].tokenId + 2].token[1] != 'b') ||
+						(In.tokens[Lextable.table[IDtable.table[i].idxfirstLE].tokenId + 2].token[0] != '0'&&
+							In.tokens[Lextable.table[IDtable.table[i].idxfirstLE].tokenId + 2].token[1] != 'o')) {
+						*log.stream << IDtable.table[i].value.vshort;
+					}
+					else {
+						*log.stream << In.tokens[Lextable.table[IDtable.table[i].idxfirstLE].tokenId + 2].token;
+					}				
+				if (IDtable.table[i].iddatatype == IT::STR)
+					*log.stream << IDtable.table[i].value.vstr.str;
+				//*log.stream << ((IDtable.table[i].value.vstr.len > 0) ? (IDtable.table[i].value.vstr.str) : (""));
+
+				*log.stream << endl;
+
 		}
 	}
 	void writeIntermediateCode(LOG &log, LT::LexTable &Lextable)

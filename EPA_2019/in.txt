@@ -14,9 +14,9 @@ glavn
 {
 
 def str lol="lol";
-def str lok="312"/0;
+def str lok="312";
 def short num=1+123;
-def short min=21232;
+def short min=21232 / 3;
 def short q=strlen(lol);
 
 def short lollol;
@@ -47,6 +47,11 @@ if(num < min)
 lollol = func(min,min,min);
 def short nums = 0o37123;
 def short nime = 0b11110011;
+
+if(nums < nime)
+{
+write(num);
+}
 write(nums);
 write(nime);
 write("HELLO");
