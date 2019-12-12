@@ -173,36 +173,40 @@ namespace LeX
 												int l = i;
 												while (flag)
 												{
-													if (InStruct.tokens[l + 4].token[0] !='0' && InStruct.tokens[l + 3].token!="/") {
-														if (!strcmp(InStruct.tokens[l + 3].token, "/"))
-														{
-															re /= atoi(InStruct.tokens[l + 4].token);
-														}
-														else if (!strcmp(InStruct.tokens[l + 3].token, "+"))
-														{
-															re += atoi(InStruct.tokens[l + 4].token);
-														}
-														else if (!strcmp(InStruct.tokens[l + 3].token, "*"))
-														{
-															re *= atoi(InStruct.tokens[l + 4].token);
-														}
-														else if (!strcmp(InStruct.tokens[l + 3].token, "-"))
-														{
-															re -= atoi(InStruct.tokens[l + 4].token);
-														}
-														else
-														{
-															flag = false;
-															//cout << re;
-															if (re != 0) {
-																entryit.value.vshort = re;
+													if (strcmp(InStruct.tokens[l + 4].token, "0")) {
+															if (!strcmp(InStruct.tokens[l + 3].token, "/")&& atoi(InStruct.tokens[l + 4].token)!=0)
+															{
+																re /= atoi(InStruct.tokens[l + 4].token);
 															}
+															else if (!strcmp(InStruct.tokens[l + 3].token, "+"))
+															{
+																re += atoi(InStruct.tokens[l + 4].token);
+															}
+															else if (!strcmp(InStruct.tokens[l + 3].token, "*"))
+															{
+																re *= atoi(InStruct.tokens[l + 4].token);
+															}
+															else if (!strcmp(InStruct.tokens[l + 3].token, "-"))
+															{
+																re -= atoi(InStruct.tokens[l + 4].token);
+															}
+															else
+															{
+																flag = false;
+																//cout << re;
+																if (re != 0) {
+																	entryit.value.vshort = re;
+																}
 
-														}
-														l += 2;
+															}
+															l += 2;
 													}
-												    else{
-														throw ERROR_THROW_IN(109, InStruct.tokens[i].line, NULL);
+													else {
+														if (!strcmp(InStruct.tokens[l + 4].token, "0") && !strcmp(InStruct.tokens[l + 3].token, "/"))
+														{
+															throw ERROR_THROW_IN(109, InStruct.tokens[i].line, NULL);
+														}
+														
 													}
 												}
 

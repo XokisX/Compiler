@@ -1,23 +1,25 @@
 STANDART;
 
-short function func(short  a, short  b, short c)
+short function func(short a)
 {
-def short result;
-result=(a*b)+c;
-write("Result: " + result);
-
-back result;
+def short res;
+back res;
 }
 
 
 glavn
 {
-
+def short num = 123;
+def short null = 0;
+def short min = 0;
+def short minss = min + num / num;
 def str lol="lol";
 def str lok="312";
-def short num=1+123;
-def short min=21232 / 3;
+
 def short q=strlen(lol);
+def short nums = 0o37123;
+
+write(minss);
 
 def short lollol;
 def short numi = compare(lol,lok);
@@ -36,26 +38,14 @@ while(min < num)
 
 if(num < min)
 {
-   write(num);
-   if(num ^ min)
-   {
-       write("hello, i am from EPA_2019 (EPAM)");
-   }
+
 }
 
 
-lollol = func(min,min,min);
-def short nums = 0o37123;
+lollol = func(min);
+
 def short nime = 0b11110011;
 
-if(nums < nime)
-{
-write(num);
-}
-write(nums);
-write(nime);
-write("HELLO");
+
 back 0;
 }
-
-	
