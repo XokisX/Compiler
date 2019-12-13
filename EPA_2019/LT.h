@@ -14,7 +14,7 @@
 #define	LEX_LITERALx8	'l'			// Литерал для восьмеричных
 #define	LEX_FUNCTION	'f'			// Функция
 #define LEX_IF          'u'			// if
-#define	LEX_DEF		    'd'			// defenit
+#define	LEX_DEF		    'd'			// def
 #define LEX_STANDART    'B'         // Объявления встроенной библиотеки
 #define LEX_STRLEN      'e'         // Встроенная библиотека strlen
 #define LEX_CMP         'C'         // Встроенная библиотека CMP

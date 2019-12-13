@@ -197,6 +197,9 @@ namespace LeX
 																if (re != 0) {
 																	entryit.value.vshort = re;
 																}
+																if (re> SHORT_MAXSIZE) {
+																	throw ERROR_THROW_IN(6, InStruct.tokens[i].line, NULL);
+																}
 
 															}
 															l += 2;

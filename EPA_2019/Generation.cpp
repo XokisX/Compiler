@@ -75,6 +75,10 @@ void Generation(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idtable)
 		case LEX_LITERAL:
 		case LEX_ID:
 		{
+			string temp = "\"<br/>\"";
+			if (Lextable.table[i-2].lexema==LEX_OUT) {
+				fout << temp << "+";
+			}
 			if (Lextable.table[i-2].lexema==LEX_STRLEN) {
 				fout << InStruct.tokens[i].token<< ".length";
 			}
@@ -109,6 +113,8 @@ void Generation(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idtable)
 		case LEX_OUT:
 		{
 			fout << "document.writeln";
+	
+			
 			break;
 		}
 		case LEX_WHILE: {

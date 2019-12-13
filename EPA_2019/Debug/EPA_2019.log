@@ -1,2 +1,19 @@
-﻿  SA.cpp
+﻿  Error.cpp
+d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\error.cpp(66): warning C4003: недостаточно аргументов для вызова макроса, подобного функции, "ERROR_ENTRY"
+  FST.cpp
+d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\fst.cpp(80): warning C4018: <: несоответствие типов со знаком и без знака
+  Generation.cpp
+  Greibach.cpp
+  IT.cpp
+  In.cpp
+  LT.cpp
+  LexAnalys.cpp
+  Log.cpp
+  MFST.cpp
+d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\mfst.cpp(232): warning C4267: =: преобразование из "size_t" в "short"; возможна потеря данных
+  Main.cpp
+  PN.cpp
+  Parm.cpp
+  SA.cpp
+  Создание кода...
   EPA_2019.vcxproj -> D:\Labs\3_sem\LP\КУРСАЧ\EPA_2019\Debug\EPA_2019.exe

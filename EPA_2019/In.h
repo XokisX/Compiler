@@ -15,12 +15,12 @@ I - игнорируемый
 
 
 #define IN_CODE_TABLE {\
-	/*16*/IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::STAB, IN::T, IN::T, IN::T, IN::T, IN::T,\
-	/*32*/IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, \
-	/*48*/IN::STAB, IN::T, IN::QUOTE, IN::T, IN::T, IN::SEP, IN::T, IN::T, IN::SEP, IN::SEP, IN::SEP, IN::SEP, IN::SEP, IN::SEP, IN::SEP, IN::SEP, \
-	/*64*/IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::SEP, IN::T, IN::SEP, IN::SEP, IN::SEP, \
-	/*80*/IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, \
-	/*96*/IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::SEP, IN::SEP, IN::T, \
+	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::STAB, IN::T, IN::T, IN::T, IN::T, IN::T,\
+	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, \
+	IN::STAB, IN::T, IN::QUOTE, IN::T, IN::T, IN::SEP, IN::T, IN::T, IN::SEP, IN::SEP, IN::SEP, IN::SEP, IN::SEP, IN::SEP, IN::SEP, IN::SEP, \
+	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::SEP, IN::T, IN::SEP, IN::SEP, IN::SEP, \
+	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, \
+	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::SEP, IN::SEP, IN::T, \
 	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, \
 	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::SEP, IN::SEP, IN::SEP, IN::T, IN::T, \
 	\
