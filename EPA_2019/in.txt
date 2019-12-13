@@ -10,7 +10,7 @@ back res;
 
 glavn
 {
-def short max = 32766;
+def short maxsadasdasdasdasdasdas = 32766;
 def short num = 5;
 def short min = 0;
 def short minss = min + num / num;

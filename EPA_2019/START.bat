@@ -1,0 +1,2 @@
+start Gen.html
+EXIT

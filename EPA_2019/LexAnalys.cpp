@@ -74,7 +74,7 @@ namespace LeX
 					case LEX_CMP:
 					{
 						IT::Entry entryit(InStruct.tokens[i].token, i, funcType = IT::SHR, IT::S);
-		
+						IT::Add(Tables.IDtable, entryit);
 						LT::Entry entrylt(LEX_CMP, InStruct.tokens[i].line, InStruct.tokens[i].token[0]);
 						LT::Add(Tables.Lextable, entrylt);
 						break;
