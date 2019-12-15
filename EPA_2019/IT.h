@@ -1,7 +1,7 @@
 #pragma once
 #define ID_MAXSIZE		8			//макс число символов идентификатора
 #define TI_MAXSIZE		4096		//макс число количество строк в таблице идентификаторов
-#define TI_SHORT_DEFAULT	0xffff		//значение по умолчанию для int
+#define TI_SHORT_DEFAULT	0xFFFF		//значение по умолчанию для int
 #define TI_STR_DEFAULT	NULL		//значение по умолчанию для string
 #define TI_NULLIDX		0xffffffff	//нет элемента таблицы идентификаторов
 #define TI_STR_MAXSIZE	255         //максимально допустимая длина строки

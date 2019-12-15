@@ -1,15 +1,15 @@
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\vc141.pdb
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\vc141.idb
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\sa.obj
-d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\parm.obj
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\pn.obj
-d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\main.obj
+d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\parm.obj
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\mfst.obj
+d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\main.obj
+d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\lt.obj
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\log.obj
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\lexanalys.obj
-d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\lt.obj
-d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\in.obj
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\it.obj
+d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\in.obj
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\greibach.obj
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\generation.obj
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\fst.obj
@@ -17,6 +17,7 @@ d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\error.obj
 d:\labs\3_sem\lp\курсач\epa_2019\debug\epa_2019.exe
 d:\labs\3_sem\lp\курсач\epa_2019\debug\epa_2019.ilk
 d:\labs\3_sem\lp\курсач\epa_2019\debug\epa_2019.pdb
+d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\sa.obj.enc
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\epa_2019.tlog\cl.command.1.tlog
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\epa_2019.tlog\cl.read.1.tlog
 d:\labs\3_sem\lp\курсач\epa_2019\epa_2019\debug\epa_2019.tlog\cl.write.1.tlog

@@ -1,46 +1,15 @@
 SYS:LB;
 
-short function func(short a,short b,short c)
-{
-def short res;
-res = (a + b + c) + (a*b*c);
-back res;
-}
 
 
 glavn
 {
-def short maxsadasdasdasdasdasdas = 32766;
+def short maxsada = 32766 + d;
 def short num = 5;
 def short min = 0;
 def short minss = min + num / num;
 def str lok="312";
 def str lol="lol";
 def str fake = "das";
-def short q=strlen(fake);
-def short nums = 0o37123;
-write(minss);
-def short lollol;
-def short numi = compare(lol,lok);
-write("Hello world!");
-while(min < num)
-{
-write(min);
-min=min+1;
-}
-
-def short kw=1;
-def short lk=2;
-
-if(kw < lk)
-{
-write("num < min");
-}
-
-
-lollol = func(min,kw,lk);
-def short nime = 0b11110011;
-write(lollol);
-write(nime);
 back 0;
 }
