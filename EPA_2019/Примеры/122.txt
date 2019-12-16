@@ -1,0 +1,16 @@
+SYS:LB;
+
+glavn
+{
+def short num = 4000;
+def str string = "Hello world";
+write(string);
+
+def short counter = 0;
+def short aim = 10;
+def short second = 0;
+def short aimsec = 5;
+def str lok = "lok";
+def short numi = compare(lok);
+back 0;
+}

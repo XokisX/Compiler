@@ -57,7 +57,7 @@
 	FST::NODE()
 
 #define GRAPH_RAVN 2, \
-	FST::NODE(1,FST::RELATION('&',1)), \
+	FST::NODE(1,FST::RELATION('~',1)), \
 	FST::NODE()
 
 #define GRAPH_ASTERISK 2, \

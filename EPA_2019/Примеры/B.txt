@@ -1,0 +1,27 @@
+SYS:LB;
+
+glavn
+{
+def short num = 4000;
+def str string = "Hello world";
+write(string);
+
+def short counter = 0;
+def short aim = 10;
+def short second = 0;
+def short aimsec = 5;
+while(counter < aim)
+{
+while(second < aimsec)
+{
+if(second ~ counter)
+{
+write("Sovpalo");
+} 
+second = second + 1;
+}
+counter = counter + 1;
+}
+
+back 0;
+}

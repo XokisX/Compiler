@@ -1,0 +1,15 @@
+SYS:LB;
+
+glavn
+{
+def short num = 4000;
+def str string = "Hello world";
+write(string);
+
+def short counter = 0;
+def short aim = 10 / counter;
+def short second = 0;
+def str fake = "lol";
+def str lok = "lok";
+back 0;
+}

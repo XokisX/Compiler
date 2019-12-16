@@ -59,7 +59,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		cout << e.id << "," << e.message << endl;
 		Log::writeError(log, e);                                        // Проброс ошибок в случае их появления
 	}
-	//system("start START.bat");
+	system("start START.bat");
 	system("pause");
 	return 0;
 }

@@ -1,0 +1,23 @@
+SYS:LB;
+
+short function func(short a,short b,short c)
+{
+def short res;
+res = (a + b + c) + (a*b*c);
+back res;
+}
+
+
+glavn
+{
+def short num = 5;
+def short min = 123;
+def short kw=1;
+def short lk=2;
+def str fake = "lol";
+def short lollol = func(fake,kw,kw);
+def short nime = 0b11110011;
+write(lollol);
+write(nime);
+back 0;
+}
