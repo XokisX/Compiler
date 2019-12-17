@@ -24,6 +24,12 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 				choise = false;
 				break;
 			}
+			if (!strcmp(InStruct.tokens[Lextable.table[i+1].tokenId].token,"0")) {
+				throw ERROR_THROW_IN(109, Lextable.table[i + 1].sn, NULL);
+				choise = false;
+				break;
+			}
+			break;
 		}
 		case LEX_SHORT:
 		{

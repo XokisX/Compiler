@@ -2,7 +2,8 @@ SYS:LB;
 
 short function func(short a, short b, short c)
 {
-def short result = a * b * c;
+def short nm = 0;
+def short result = (a * b * c);
 back result;
 }
 
@@ -11,6 +12,8 @@ glavn
 def short asd = 234;
 def short f = 1;
 def str fake = "das";
+def short lo = 0o1232;
+write(lo);
 def short q = strlen(fake);
 while(f < asd)
 {

@@ -200,6 +200,9 @@ namespace LeX
 																if (re> SHORT_MAXSIZE) {
 																	throw ERROR_THROW_IN(6, InStruct.tokens[i].line, NULL);
 																}
+																if (re < SHORT_MINUS_MAXSIZE) {
+																	throw ERROR_THROW_IN(6, InStruct.tokens[i].line, NULL);
+																}
 
 															}
 															l += 2;
@@ -446,7 +449,7 @@ namespace LeX
 			isExecuted = false;
 			isLiteral = false;
 		}
-		int temp = Tables.Lextable.table[0].sn;
+		/*int temp = Tables.Lextable.table[0].sn;
 		for (int i = 0; i < Tables.Lextable.size;i++) {
 			if (temp != Tables.Lextable.table[i].sn) {
 				cout << endl;
@@ -454,7 +457,7 @@ namespace LeX
 			}
 			cout << Tables.Lextable.table[i].lexema;
 			
-		}
+		}*/
 		return Tables; //возвращаем таблицу лексем
 	}
 }
