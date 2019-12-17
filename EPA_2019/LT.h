@@ -17,7 +17,7 @@
 #define	LEX_DEF		    'd'			// def
 #define LEX_STANDART    'B'         // Объявления встроенной библиотеки
 #define LEX_STRLEN      'e'         // Встроенная библиотека strlen
-#define LEX_CMP         'C'         // Встроенная библиотека CMP
+#define LEX_CMP         'c'         // Встроенная библиотека CMP
 #define	LEX_BACK		'b'			// Return
 #define	LEX_OUT		    'o'			// Out
 #define	LEX_GLAVN		'g'			// Glavn

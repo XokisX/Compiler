@@ -442,12 +442,13 @@ bool  SemanticAnalyze(LT::LexTable &Lextable, In::IN &InStruct, IT::IdTable &idt
 		{
 			if (Lextable.table[i + 2].lexema == LEX_IF || Lextable.table[i + 2].lexema == LEX_BACK || Lextable.table[i + 2].lexema == LEX_OUT || Lextable.table[i + 2].lexema == LEX_GLAVN ||
 				Lextable.table[i + 2].lexema == LEX_WHILE || Lextable.table[i + 2].lexema == LEX_FUNCTION || Lextable.table[i + 2].lexema == LEX_DEF || Lextable.table[i + 2].lexema == LEX_STANDART ||
-				Lextable.table[i + 2].lexema == LEX_STRLEN || Lextable.table[i + 2].lexema == LEX_CMP || Lextable.table[i + 2].lexema == LEX_SHORT)
+				Lextable.table[i + 2].lexema == LEX_STRLEN || Lextable.table[i + 2].lexema == LEX_CMP || Lextable.table[i + 2].lexema == LEX_SHORT|| Lextable.table[i + 2].lexema == LEX_STR||
+				!strcmp(InStruct.tokens[Lextable.table[i+2].tokenId].token,"null")|| !strcmp(InStruct.tokens[Lextable.table[i + 2].tokenId].token, "var"))
 			{
 				throw ERROR_THROW_IN(610, Lextable.table[i].sn, NULL);
 				choise = false;
 			}
-			break;
+ 			break;
 		}
 		case LEX_WHILE: {
 			if (((IT::IsId(idtable, InStruct.tokens[i + 2].token)) == -1|| (IT::IsId(idtable, InStruct.tokens[i + 4].token)) == -1) || (Lextable.table[i + 5].lexema != LEX_RIGHTTHESIS) || (Lextable.table[i + 3].lexema != LEX_LAGRER && Lextable.table[i + 3].lexema != LEX_LESS && Lextable.table[i + 3].lexema != LEX_NOT_EQUALS
